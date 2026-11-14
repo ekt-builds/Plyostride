@@ -4049,8 +4049,28 @@
         `;
       }
     }
+function autoDetectCurrentDateAndWeek() {
+  const now = new Date();
+  let jsDay = now.getDay(); 
+  let kinetixDay = jsDay === 0 ? 6 : jsDay - 1; 
+  state.selectedDay = kinetixDay;
 
+  if (!state.programStartDate) {
+    state.programStartDate = now.toISOString();
+  } else {
+    const startMs = new Date(state.programStartDate).getTime();
+    const currentMs = now.getTime();
+    const diffDays = Math.floor((currentMs - startMs) / (1000 * 60 * 60 * 24));
+    
+    if (diffDays >= 0) {
+      const calculatedWeek = Math.floor(diffDays / 7) + 1;
+      state.currentWeek = Math.min(36, Math.max(1, calculatedWeek));
+    }
+  }
+  saveState();
+}
     window.addEventListener('DOMContentLoaded', () => {
+      autoDetectCurrentDateAndWeek();
       render();
       updateTimerUI();
       updateBmiUI();

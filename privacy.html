@@ -1,45 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="carbon">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | PLYOSTRIDE</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy & Clinical Disclaimer | PLYOSTRIDE</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='118' fill='%23121215'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <nav class="top-nav">
-        <a href="index.html" class="logo-container">
-            <span class="logo-text">PLYOSTRIDE</span>
-        </a>
-        <div class="nav-actions">
-            <a href="index.html" class="btn-nav">← Home</a>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-lockup">
+        <img src="icon.jpg" alt="" class="footer-icon" onerror="this.style.display='none'" />
+        <div class="brand-text-wrap">
+          <span class="logo-text">PLYOSTRIDE</span>
+          <span class="version-pill mono">DATA SOVEREIGNTY</span>
         </div>
-    </nav>
-
-    <div class="legal-container">
-        <h1>Privacy Policy & Disclaimer</h1>
-        <p><strong>Effective Date:</strong> November 17, 2026</p>
-
-        <h2>1. Absolute Local Sovereignty</h2>
-        <p>PLYOSTRIDE is engineered as an offline-first application. We do not operate cloud servers, external databases, or remote telemetry systems. All data you generate—including biometrics, workout logs, running distances, shoe mileage, and readiness scores—is written directly to a local SQLite database residing strictly on your device.</p>
-
-        <h2>2. Data Collection and Transmission</h2>
-        <p>We do not collect, harvest, transmit, or sell your personal data. Because the application has no backend cloud architecture, it is technically impossible for the developer to access your training history or physiological metrics.</p>
-
-        <h2>3. User Responsibility & Backups</h2>
-        <p>Because your data is strictly localized, <strong>you are solely responsible for its preservation</strong>. If you uninstall the application, clear your device's application storage, or lose your phone, your data will be permanently erased. Use the System tab inside PLYOSTRIDE to export raw <code>.json</code> and <code>.csv</code> backups regularly.</p>
-
-        <h2>4. Medical & Biomechanical Disclaimer</h2>
-        <p>PLYOSTRIDE is an athletic periodization and biomechanical tracking tool, not a certified medical device. The telemetry provided (including ACWR, Karvonen HRR, and Arch/Tendon protocols) is based on standard sports science literature and is not a substitute for professional medical diagnosis or clinical physical therapy.</p>
-
-        <h2>5. Contact & Support</h2>
-        <p>If you have questions regarding this architecture or wish to report a bug, open an issue on the <a href="https://github.com/emmanueltumolva/PLYOSTRIDE/issues" style="color: var(--accent-green);">official GitHub repository</a>.</p>
-        
-        <br>
-        <a href="index.html" class="btn-primary" style="display:inline-block; margin-top:10px;">← Return to PLYOSTRIDE</a>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn-nav">← Back to Overview</a>
+      </div>
     </div>
+  </nav>
+
+  <main class="legal-container">
+    <div class="section-header">
+      <span class="eyebrow mono">LEGAL & DATA ARCHITECTURE</span>
+      <h2>Privacy Policy & Clinical Disclaimer</h2>
+      <p class="mono" style="font-size:12px;">Effective Date: November 2026 · Version 1.0.0 Stable</p>
+    </div>
+
+    <section class="legal-card">
+      <h2>1. Absolute Data Sovereignty (Zero-Cloud Architecture)</h2>
+      <p>
+        <strong>PLYOSTRIDE</strong> is engineered on a strict offline-first, local-storage architecture. Unlike commercial fitness platforms, PLYOSTRIDE operates with <strong>zero external analytics servers, zero advertising SDKs, and zero telemetry tracking</strong>.
+      </p>
+      <ul>
+        <li><strong>On-Device SQLite Persistence:</strong> All biometric inputs (height, weight, standing reach, Max/Resting Heart Rate), workout logs, weekly benchmarks, and shoe mileage records are written exclusively to your device's internal SQLite database (<code>plyostride_vault</code>), Origin Private File System (OPFS), and local IndexedDB vault.</li>
+        <li><strong>No Account Required:</strong> You never register an email address, phone number, or password to use PLYOSTRIDE.</li>
+        <li><strong>User-Controlled Portability:</strong> Your data leaves your device only when you explicitly trigger a <code>.json</code> backup, <code>.csv</code> training log export, Sync Code copy, or optional user-configured REST webhook/API request.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>2. Optional Third-Party API Connections (BYOK)</h2>
+      <p>
+        PLYOSTRIDE includes a built-in deterministic sports-science advisor that functions 100% offline. If you optionally choose to enter a personal <strong>Google Gemini API Key</strong> or a custom <strong>Cloud Vault URL</strong>:
+      </p>
+      <ul>
+        <li>Your API key is stored strictly inside your local device database and is never transmitted to PLYOSTRIDE developers.</li>
+        <li>Requests are sent directly from your device to the endpoint you configured.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card">
+      <h2>3. Hardware Permissions</h2>
+      <ul>
+        <li><strong>Local Storage & Filesystem:</strong> Used strictly to read and write your training database backups (<code>.json</code> / <code>.csv</code>) and generated app icons (<code>.png</code> / <code>.svg</code>).</li>
+        <li><strong>Screen WakeLock & Vibration:</strong> Used during active Guided Workout sessions, isometric holds, and cadence metronomes so your screen does not sleep mid-set.</li>
+        <li><strong>Local Video File Input:</strong> When using the Slow-Mo Video GCT/RSI Frame Scrubber, video files are processed strictly in local memory via <code>URL.createObjectURL</code> and are never uploaded anywhere.</li>
+      </ul>
+    </section>
+
+    <section class="legal-card" style="border-color:rgba(255, 90, 31, 0.35);">
+      <h2>4. Clinical & Biomechanical Disclaimer</h2>
+      <p>
+        <strong>PLYOSTRIDE is an athletic periodization calculator and telemetry tracker, NOT a medical device.</strong>
+      </p>
+      <p>
+        High-intensity plyometrics (including Depth Jumps, Max Approach Jumps, and Pogo Hops) and endurance distance running place substantial mechanical forces (5–8× body weight) on the patellar tendon, Achilles tendon, plantar fascia, tibia, and central nervous system.
+      </p>
+      <ul>
+        <li>The <strong>ACWR (Acute:Chronic Workload Ratio)</strong>, <strong>Keith Baar Isometric Tendon Analgesia Timer</strong>, <strong>Rathleff Plantar Protocol</strong>, and <strong>Karvonen Heart Rate Reserve (HRR) Zones</strong> are provided for informational and educational conditioning purposes only.</li>
+        <li>Always consult a qualified physician, orthopedic specialist, or licensed physical therapist before beginning any high-impact plyometric, endurance running, or tendon rehabilitation regimen.</li>
+        <li>Stop training immediately if you experience sharp joint pain, acute tendon swelling, dizziness, or chest discomfort.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom mono">
+      <span>© 2026 PLYOSTRIDE OS.</span>
+      <a href="index.html" style="color:var(--secondary);text-decoration:none;">Return to PLYOSTRIDE Home →</a>
+    </div>
+  </footer>
 
 </body>
 </html>

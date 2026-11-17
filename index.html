@@ -1,116 +1,742 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="carbon">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLYOSTRIDE | Offline-First Athletic Operating System</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>PLYOSTRIDE — Offline-First Hybrid Athlete Operating System</title>
+  <meta name="description" content="An offline-first, native SQLite athletic operating system engineered for vertical jump plyometrics, 10K running periodization, and clinical tendon load management." />
+
+  <!-- OpenGraph / Social Link Preview (Uses your icon.jpg in the repo root) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PLYOSTRIDE · Offline-First Hybrid Athlete OS" />
+  <meta property="og:description" content="52-week deterministic periodization, ACWR tendon load management, RSI flight physics, and native SQLite storage. Zero cloud lock-in." />
+  <meta property="og:url" content="https://plyostrideos.github.io/" />
+  <meta property="og:image" content="https://plyostrideos.github.io/icon.jpg" />
+
+  <!-- Crisp Inline SVG Favicon + icon.jpg Touch Fallback -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23232329'/%3E%3Cstop offset='100%25' stop-color='%230E0E12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='118' fill='url(%23g)'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="icon.jpg" />
+
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- SIMPLE HEADER WITH PLYOSTRIDE TITLE -->
-    <nav class="top-nav">
-        <a href="index.html" class="logo-container">
-            <span class="logo-text">PLYOSTRIDE</span>
-        </a>
-        <div class="nav-actions">
-            <a href="https://github.com/emmanueltumolva/PLYOSTRIDE/releases" class="btn-nav">GitHub</a>
-        </div>
-    </nav>
+  <!-- AMBIENT RADIAL GLOW -->
+  <div class="ambient-glow" aria-hidden="true"></div>
 
-    <!-- HERO / DOWNLOAD SECTION -->
-    <header class="hero">
-        <div class="hero-badge">OFFLINE-FIRST HYBRID ATHLETE OS</div>
-        <h1>PLYOSTRIDE</h1>
+  <!-- STICKY HYPEROS NAVIGATION BAR -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-lockup">
+        <svg class="brand-squircle" viewBox="0 0 512 512" aria-label="PLYOSTRIDE Icon">
+          <defs>
+            <linearGradient id="navIconGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#25252B" />
+              <stop offset="100%" stop-color="#101014" />
+            </linearGradient>
+          </defs>
+          <rect width="512" height="512" rx="118" fill="url(#navIconGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="12" />
+          <path class="svg-primary" d="M104 388 C196 306 312 286 414 304" fill="none" stroke="var(--primary)" stroke-width="36" stroke-linecap="round" />
+          <path class="svg-tertiary" d="M126 322 C214 246 318 228 402 244" fill="none" stroke="var(--tertiary)" stroke-width="34" stroke-linecap="round" />
+          <path class="svg-secondary" d="M168 258 L256 116 L344 258" fill="none" stroke="var(--secondary)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
+          <circle class="svg-dot" cx="256" cy="228" r="22" fill="var(--secondary)" />
+        </svg>
+        <div class="brand-text-wrap">
+          <span class="logo-text">PLYOSTRIDE</span>
+          <span class="version-pill mono" id="nav-version-pill">v1.0.0 STABLE</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#architecture">Architecture</a>
+        <a href="#physics-lab">Live Physics Lab</a>
+        <a href="#comparison">Specs</a>
+        <a href="#install">Install</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Live 5-Theme Switcher -->
+        <div class="theme-switcher" role="group" aria-label="OLED Theme Preview">
+          <button type="button" class="theme-dot active" data-set-theme="carbon" title="PLYOSTRIDE Carbon (Default)">
+            <span style="background:#FF5A1F;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="cobalt" title="Cobalt Velocity">
+            <span style="background:#3B82F6;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="emerald" title="Emerald Bio-Lab">
+            <span style="background:#10B981;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="crimson" title="Crimson Apex">
+            <span style="background:#F43F5E;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="amethyst" title="Amethyst Neuro">
+            <span style="background:#A855F7;"></span>
+          </button>
+        </div>
+
+        <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener" class="btn-nav" id="nav-github-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          <span>Releases</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH INTERACTIVE DEVICE MOCKUP -->
+  <header class="hero">
+    <div class="hero-grid">
+      <!-- Left Column: Copy & Download CTA -->
+      <div class="hero-copy">
+        <div class="status-banner">
+          <span class="status-dot"></span>
+          <span class="mono" id="release-status-text">STABLE PRODUCTION BUILD · NATIVE SQLITE ENGINE</span>
+        </div>
+
+        <h1>Deterministic Periodization.<br /><span class="text-gradient">Zero Cloud Lock-In.</span></h1>
+
         <p class="hero-sub">
-            An advanced offline-first operating system engineered for vertical jump progression, distance periodization, and clinical tendon load management. Built locally on SQLite with absolute data sovereignty.
+          Most fitness apps are glorified task lists that trap your biometrics on proprietary servers. <strong>PLYOSTRIDE</strong> is an offline-first hybrid athlete operating system engineered for explosive vertical jump progression, 10K aerobic pacing, and clinical tendon load management—written directly to a native SQLite vault on your device.
         </p>
 
         <div class="cta-group">
-            <a id="apk-download-btn" href="https://github.com/emmanueltumolva/PLYOSTRIDE/releases" class="btn btn-primary">
-                Download APK
-            </a>
+          <a id="apk-download-btn" href="https://github.com/plyostrideos/plyostrideos.github.io/releases" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="apk-btn-label">Download Stable APK</span>
+          </a>
+          <a href="#physics-lab" class="btn btn-secondary">
+            <span>Test Live Physics Lab</span>
+            <span class="mono">→</span>
+          </a>
         </div>
-        <p class="release-meta">Android 8.0+ · Local SQLite Database · Zero Cloud Dependencies</p>
-    </header>
 
-    <!-- DESCRIPTIVE ARCHITECTURE SECTIONS -->
-    <main class="content-container">
-        <section class="desc-block">
-            <h2>About the System</h2>
-            <p>
-                PLYOSTRIDE is a high-leverage application built specifically for athletes who manage high-mileage distance running alongside high-impact plyometric training. Traditional fitness trackers rely on cloud servers and superficial metrics; PLYOSTRIDE uses deterministic periodization, mathematical load management, and on-device data persistence to protect your central nervous system and tendons from chronic overload.
-            </p>
-        </section>
+        <div class="hero-telemetry-strip mono">
+          <div class="tel-pill">
+            <span class="tel-lbl">STORAGE</span>
+            <span class="tel-val text-green">SQLite + OPFS Vault ✓</span>
+          </div>
+          <div class="tel-pill">
+            <span class="tel-lbl">PLATFORM</span>
+            <span class="tel-val" id="apk-meta-size">Android 8.0+ APK</span>
+          </div>
+          <div class="tel-pill">
+            <span class="tel-lbl">TELEMETRY</span>
+            <span class="tel-val text-cyan">0 External Trackers</span>
+          </div>
+        </div>
+      </div>
 
-        <section class="desc-block">
-            <h2>Core Technical Architecture</h2>
-            <div class="feature-list">
-                <div class="feature-item">
-                    <h3>Local SQLite Database</h3>
-                    <p>All biometrics, workout schedules, shoe mileage logs, and readiness entries are stored strictly on your device's internal storage. Complete raw <code>.json</code> and <code>.csv</code> export capabilities guarantee absolute data ownership.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Clinical Load Management (ACWR)</h3>
-                    <p>Calculates your Acute:Chronic Workload Ratio to maintain training load within the optimal sweet spot (0.80–1.30), preventing spikes that lead to stress reactions and tendonitis.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Tendon & Impact Shield Protocols</h3>
-                    <p>Features dedicated tools for heavy isometric tendon holds, pogo cadence metronomes, post-session tendon pain check-ins (0–10), and midsole foam degradation tracking.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Deterministic 52-Week Periodization</h3>
-                    <p>Automates training blocks with hardcoded 4:1 mesocycle auto-deloads, 1-year race countdown tracking, and dynamic workout adjustments based on acute recovery inputs.</p>
-                </div>
+      <!-- Right Column: Live Interactive PLYOSTRIDE OLED Phone Preview -->
+      <div class="hero-device-stage">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <!-- Phone Header -->
+            <div class="mock-header">
+              <div class="mock-brand">
+                <img src="icon.jpg" alt="" class="mock-icon-img" onerror="this.style.display='none'" />
+                <span class="mock-title">PLYOSTRIDE</span>
+              </div>
+              <span class="mock-wk-pill mono">W14/52</span>
             </div>
-        </section>
 
-        <section class="desc-block">
-            <h2>Installation Guide</h2>
-            <p>Because PLYOSTRIDE is distributed independently to avoid external app store restrictions, follow these steps to install the APK on Android:</p>
-            <ol class="install-steps">
-                <li>Tap the <strong>Download APK</strong> button above to access the GitHub Releases repository.</li>
-                <li>Download the latest `PLYOSTRIDE.apk` file to your Android device.</li>
-                <li>Open the downloaded file. If prompted by Android security, tap <strong>Settings</strong> and enable <strong>Allow from this source</strong>.</li>
-                <li>If Google Play Protect displays an unknown developer warning, tap <strong>More Details</strong> followed by <strong>Install Anyway</strong>.</li>
-            </ol>
-        </section>
-    </main>
+            <!-- Interactive Screen View 1: TODAY -->
+            <div class="mock-view active" id="mock-view-today">
+              <div class="mock-verse">
+                <span class="mono" style="font-size:10px;color:var(--text-dim);">PHILIPPIANS 4:13</span>
+                <div style="font-size:11.5px;color:#D4D4D8;">"I can do all this through him who gives me strength."</div>
+              </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 PLYOSTRIDE. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy & Disclaimer</a>
-            <a href="https://github.com/emmanueltumolva/PLYOSTRIDE/releases">Releases</a>
-            <a href="https://github.com/emmanueltumolva/PLYOSTRIDE/issues">GitHub Issues</a>
+              <!-- Concentric Tilted Stadium Rings -->
+              <div class="mock-rings-wrap">
+                <svg class="mock-stadium-svg" viewBox="0 0 260 210">
+                  <g transform="translate(130, 105) rotate(-42) translate(-130, -105)">
+                    <rect x="34" y="36" width="192" height="138" rx="69" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
+                    <rect x="34" y="36" width="192" height="138" rx="69" fill="none" stroke="var(--primary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="18" />
+                    <rect x="55" y="57" width="150" height="96" rx="48" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
+                    <rect x="55" y="57" width="150" height="96" rx="48" fill="none" stroke="var(--secondary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="14" />
+                    <rect x="76" y="78" width="108" height="54" rx="27" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
+                    <rect x="76" y="78" width="108" height="54" rx="27" fill="none" stroke="var(--tertiary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="8" />
+                  </g>
+                </svg>
+                <div class="mock-badge-left mono">
+                  <span style="font-size:9px;color:var(--text-dim);">RECOVERY</span>
+                  <span style="font-size:11px;color:var(--secondary);font-weight:700;">0h · Ready</span>
+                </div>
+                <div class="mock-badge-right mono">
+                  <span style="font-size:9px;color:var(--secondary);">MO 4</span>
+                  <span style="font-size:11px;font-weight:700;">Force Load</span>
+                </div>
+              </div>
+
+              <!-- 3-Col Metrics -->
+              <div class="mock-card">
+                <div class="mock-3col mono">
+                  <div>
+                    <div class="mock-m-lbl">Run</div>
+                    <div class="mock-m-val">27.0</div>
+                    <div class="mock-m-sub">/33 km</div>
+                  </div>
+                  <div>
+                    <div class="mock-m-lbl">Days</div>
+                    <div class="mock-m-val">6</div>
+                    <div class="mock-m-sub">/7</div>
+                  </div>
+                  <div>
+                    <div class="mock-m-lbl">Today</div>
+                    <div class="mock-m-val text-cyan">92%</div>
+                    <div class="mock-m-sub">MON</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ACWR Mini Card -->
+              <div class="mock-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;">
+                  <span>ACWR & Tendon Gate</span>
+                  <span class="mono text-green">1.06 · Sweet Spot</span>
+                </div>
+                <div class="mock-acwr-bar">
+                  <div class="mock-acwr-pin" style="left:52%;"></div>
+                </div>
+                <div class="mono" style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--text-dim);">
+                  <span>0.80 Low</span>
+                  <span>66 / 90 Plyo Contacts</span>
+                  <span>>1.50 Spike</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Screen View 2: WORKOUT -->
+            <div class="mock-view" id="mock-view-workout">
+              <div class="mock-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                  <span style="font-size:12px;font-weight:700;">Monday · Jump & Strength</span>
+                  <span class="mock-tag mono">LVL: ADV</span>
+                </div>
+                <div class="mock-ex-item done">
+                  <span class="mock-chk">✓</span>
+                  <div>
+                    <div class="mock-ex-name">Max Approach Jumps</div>
+                    <div class="mock-ex-rx mono">3 × 6 · 120s rest · 36h CNS Rec</div>
+                  </div>
+                </div>
+                <div class="mock-ex-item done">
+                  <span class="mock-chk">✓</span>
+                  <div>
+                    <div class="mock-ex-name">Depth Jumps (12–18")</div>
+                    <div class="mock-ex-rx mono">3 × 5 · 120s rest · <span class="text-cyan">GCT <185ms</span></div>
+                  </div>
+                </div>
+                <div class="mock-ex-item">
+                  <span class="mock-chk-open"></span>
+                  <div>
+                    <div class="mock-ex-name">Tempo Bulgarian Split Squats</div>
+                    <div class="mock-ex-rx mono">3 × 6 / leg · 25 lb DBs</div>
+                  </div>
+                </div>
+                <div class="mock-ex-item">
+                  <span class="mock-chk-open"></span>
+                  <div>
+                    <div class="mock-ex-name">4-Part Arch & Soleus Shield</div>
+                    <div class="mock-ex-rx mono">Short Foot · Tibialis · Soleus Iso</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-card" style="border-color:rgba(250,204,21,0.3);">
+                <div style="font-size:11px;font-weight:700;color:#FACC15;">⚡ Keith Baar Tendon Guard</div>
+                <div style="font-size:10.5px;color:var(--text-dim);margin-top:3px;">
+                  If post-session Achilles or patellar stiffness ≥ 4/10, Depth Jumps automatically swap to 5 × 45s analgesic isometric holds.
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Screen View 3: DATA VAULT -->
+            <div class="mock-view" id="mock-view-data">
+              <div class="mock-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                  <span style="font-size:12px;font-weight:700;">Athlete Telemetry</span>
+                  <span class="mock-tag mono text-green">SQLite Native ✓</span>
+                </div>
+                <div class="mock-3col mono" style="margin-bottom:8px;">
+                  <div>
+                    <div class="mock-m-lbl">Height</div>
+                    <div class="mock-m-val" style="font-size:15px;">158 cm</div>
+                  </div>
+                  <div>
+                    <div class="mock-m-lbl">Weight</div>
+                    <div class="mock-m-val" style="font-size:15px;">53.0 kg</div>
+                  </div>
+                  <div>
+                    <div class="mock-m-lbl">Reach</div>
+                    <div class="mock-m-val" style="font-size:15px;">203 cm</div>
+                  </div>
+                </div>
+                <div class="mono" style="font-size:10px;color:var(--secondary);padding-top:6px;border-top:1px solid var(--hairline);">
+                  Karvonen HRR: 151 BPM · Zone 2: 143–158 BPM
+                </div>
+              </div>
+
+              <div class="mock-card">
+                <div style="font-size:11.5px;font-weight:700;margin-bottom:6px;">Shoe Midsole Decompression</div>
+                <div style="font-size:11px;display:flex;justify-content:space-between;" class="mono">
+                  <span>Xtep 2000 km 5.0</span>
+                  <span class="text-cyan">312 / 1200 km</span>
+                </div>
+                <div style="font-size:11px;display:flex;justify-content:space-between;margin-top:4px;" class="mono">
+                  <span>361° Flame 5 Mix</span>
+                  <span class="text-orange">148 / 1000 km</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Phone Bottom Nav (Visitors can click!) -->
+            <div class="mock-bottom-nav">
+              <button type="button" class="mock-nav-btn active" onclick="switchMockTab('today', this)">Today</button>
+              <button type="button" class="mock-nav-btn" onclick="switchMockTab('workout', this)">Workout</button>
+              <button type="button" class="mock-nav-btn" onclick="switchMockTab('data', this)">Data Vault</button>
+            </div>
+          </div>
         </div>
-    </footer>
+        <div class="mockup-caption mono">↑ Interactive Preview: Click tabs inside the phone or switch themes in the top bar</div>
+      </div>
+    </div>
+  </header>
 
-    <!-- GITHUB APK RESOLVER SCRIPT -->
-    <script>
-        async function resolveLatestApk() {
-            const btn = document.getElementById('apk-download-btn');
-            try {
-                const res = await fetch('https://api.github.com/repos/emmanueltumolva/PLYOSTRIDE/releases');
-                if (!res.ok) return;
-                const releases = await res.json();
-                if (releases && releases.length > 0) {
-                    const latest = releases[0];
-                    const apkAsset = (latest.assets || []).find(a => a.name.toLowerCase().endsWith('.apk'));
-                    if (apkAsset) {
-                        btn.href = apkAsset.browser_download_url;
-                        btn.textContent = `Download APK (${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB)`;
-                    } else {
-                        btn.href = latest.html_url;
-                    }
-                }
-            } catch (e) {
-                // Fallback to releases page
-            }
+  <main class="content-container">
+
+    <!-- SECTION 1: 6-PILLAR BENTO ARCHITECTURE -->
+    <section id="architecture" class="section-block">
+      <div class="section-header">
+        <span class="eyebrow mono">SYSTEM ARCHITECTURE</span>
+        <h2>Engineered for Concurrent Hybrid Output</h2>
+        <p>Combining high-mileage aerobic running with maximal vertical jump plyometrics creates severe neuromuscular interference if unmanaged. PLYOSTRIDE resolves the interference effect through six deterministic subsystems.</p>
+      </div>
+
+      <div class="bento-grid">
+        <article class="bento-card bento-wide">
+          <div class="bento-top">
+            <span class="bento-badge mono text-green">01 · NATIVE PERSISTENCE</span>
+            <span class="mono" style="font-size:11px;color:var(--text-dim);">@capacitor-community/sqlite</span>
+          </div>
+          <h3>3-Tier Native SQLite + OPFS Hardware Vault</h3>
+          <p>
+            Web-wrapper apps lose your training history the moment the mobile OS clears browser cache. PLYOSTRIDE writes directly to Android's physical flash storage (<code>/data/data/com.plyostride.app/databases/plyostride_vault</code>), backed by an automated Origin Private File System (OPFS) and persistent IndexedDB mirror. Export full <code>.json</code> snapshots, <code>.csv</code> spreadsheets, or transfer profiles across devices via zero-account Sync Codes.
+          </p>
+        </article>
+
+        <article class="bento-card">
+          <div class="bento-top">
+            <span class="bento-badge mono text-orange">02 · LOAD GOVERNANCE</span>
+          </div>
+          <h3>ACWR & Keith Baar Tendon Gate</h3>
+          <p>
+            Tracks your 7-day Acute to 28-day Chronic Workload Ratio inside the <strong>0.80–1.30 Sweet Spot</strong>. While muscle recovers in 24–48h, patellar and Achilles tendons require 48–72h. Logging tendon stiffness ≥ 4/10 automatically swaps high-impact Depth Jumps to 45-second analgesic isometric holds.
+          </p>
+        </article>
+
+        <article class="bento-card">
+          <div class="bento-top">
+            <span class="bento-badge mono text-cyan">03 · MACROCYCLE ENGINE</span>
+          </div>
+          <h3>52-Week Periodization & Race Reverse-Engineering</h3>
+          <p>
+            Progresses systematically from Zone 2 Aerobic Base & Tendon Armor (Months 1–3) to Force Load, Track Intervals ($6\times 800\text{m}$), and Championship Taper. Input any target 10K race date to reverse-engineer your current training week and auto-scale volume across Beginner (65%), Intermediate (85%), or Advanced (100%) tiers.
+          </p>
+        </article>
+
+        <article class="bento-card">
+          <div class="bento-top">
+            <span class="bento-badge mono text-green">04 · NEURAL EXECUTION</span>
+          </div>
+          <h3>2-Min PAP Primer & Hands-Free Player</h3>
+          <p>
+            Unlocks Post-Activation Potentiation (PAP) prior to max approach jumps. The full-screen workout player features hardware Screen WakeLock, automatic 5-second unilateral leg-switch transitions, and dual-frequency audio metronomes (<strong>180 SPM</strong> running cadence and <strong>2.2 Hz / 132 BPM</strong> pogo stiffness rhythm).
+          </p>
+        </article>
+
+        <article class="bento-card bento-wide">
+          <div class="bento-top">
+            <span class="bento-badge mono text-cyan">05 · BIOMECHANICS & GEAR TELEMETRY</span>
+            <span class="mono" style="font-size:11px;color:var(--text-dim);">EVA / PEBAX Foam Recovery</span>
+          </div>
+          <h3>Midsole Foam Decompression & Slow-Mo Video GCT Scrubber</h3>
+          <p>
+            Running shoe midsoles require 24 hours to decompress after runs $\ge 10\text{ km}$. PLYOSTRIDE enforces shoe rotation between Zone 2 mileage trainers and carbon/tempo racers while counting cumulative jump contacts on your court shoes. Includes an on-board slow-motion video frame scrubber (60/120/240 FPS) to measure exact Ground Contact Time (GCT) and Reactive Strength Index (RSI).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 2: LIVE INTERACTIVE BIOMECHANICAL PHYSICS SANDBOX -->
+    <section id="physics-lab" class="section-block">
+      <div class="section-header">
+        <span class="eyebrow mono">INTERACTIVE SANDBOX</span>
+        <h2>Test the On-Board Physics & Physiology Engines</h2>
+        <p>Experience the exact mathematical models embedded inside PLYOSTRIDE's Tools tab—live in your browser.</p>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Calculator 1: Flight-Time Vertical Jump & RSI -->
+        <div class="sandbox-card">
+          <div class="sandbox-head">
+            <h3>Vertical Jump & RSI Physics</h3>
+            <span class="mono pill-code">h = g · t² / 8</span>
+          </div>
+          <p class="sandbox-desc">Computes vertical displacement from gravitational flight time ($g = 9.80665\text{ m/s}^2$) and evaluates elastic ankle stiffness via Reactive Strength Index ($\text{RSI} = \text{Flight Time} / \text{GCT}$).</p>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Flight Time (Air Time)</span>
+              <span class="mono text-green" id="lab-flight-val">680 ms</span>
+            </div>
+            <input type="range" min="400" max="900" step="5" value="680" id="lab-flight-slider" oninput="updatePhysicsLab()" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Ground Contact Time (GCT)</span>
+              <span class="mono text-cyan" id="lab-gct-val">175 ms</span>
+            </div>
+            <input type="range" min="110" max="320" step="5" value="175" id="lab-gct-slider" oninput="updatePhysicsLab()" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Athlete Standing Reach</span>
+              <span class="mono" id="lab-reach-val">203 cm</span>
+            </div>
+            <input type="range" min="170" max="260" step="1" value="203" id="lab-reach-slider" oninput="updatePhysicsLab()" />
+          </div>
+
+          <div class="sandbox-results mono">
+            <div class="res-box">
+              <span class="res-lbl">VERTICAL JUMP</span>
+              <span class="res-num text-green" id="lab-jump-out">56.7 cm</span>
+              <span class="res-sub" id="lab-jump-in">22.3 in</span>
+            </div>
+            <div class="res-box">
+              <span class="res-lbl">MAX SPIKE TOUCH</span>
+              <span class="res-num text-orange" id="lab-touch-out">259.7 cm</span>
+              <span class="res-sub" id="lab-touch-ft">8' 6.2"</span>
+            </div>
+            <div class="res-box">
+              <span class="res-lbl">RSI SCORE</span>
+              <span class="res-num text-cyan" id="lab-rsi-out">3.89</span>
+              <span class="res-sub" id="lab-rsi-tier">Elite Elastic</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator 2: Karvonen HRR & Riegel 10K Race Predictor -->
+        <div class="sandbox-card">
+          <div class="sandbox-head">
+            <h3>Karvonen HRR & Riegel 10K Engine</h3>
+            <span class="mono pill-code">T₂ = T₁ · (D₂/D₁)^1.06</span>
+          </div>
+          <p class="sandbox-desc">Calibrates aerobic Zone 2 thresholds using Heart Rate Reserve ($\text{HRR} = \text{HR}_{\max} - \text{RHR}$) so endurance mileage never cannibalizes fast-twitch CNS jump recovery.</p>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Max Heart Rate ($\text{HR}_{\max}$)</span>
+              <span class="mono text-orange" id="lab-maxhr-val">203 BPM</span>
+            </div>
+            <input type="range" min="160" max="220" step="1" value="203" id="lab-maxhr-slider" oninput="updateKarvonenLab()" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Resting Heart Rate (Morning RHR)</span>
+              <span class="mono text-cyan" id="lab-rhr-val">52 BPM</span>
+            </div>
+            <input type="range" min="38" max="85" step="1" value="52" id="lab-rhr-slider" oninput="updateKarvonenLab()" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Current 5K Time Trial PR</span>
+              <span class="mono text-green" id="lab-5k-val">23:45</span>
+            </div>
+            <input type="range" min="960" max="2100" step="15" value="1425" id="lab-5k-slider" oninput="updateKarvonenLab()" />
+          </div>
+
+          <div class="sandbox-results mono">
+            <div class="res-box">
+              <span class="res-lbl">ZONE 2 BASE (60–70%)</span>
+              <span class="res-num text-green" id="lab-z2-out">143–158</span>
+              <span class="res-sub" id="lab-hrr-sub">HRR: 151 BPM</span>
+            </div>
+            <div class="res-box">
+              <span class="res-lbl">PROJECTED 10K</span>
+              <span class="res-num text-orange" id="lab-10k-out">49:31</span>
+              <span class="res-sub" id="lab-pace-sub">4'57" / km</span>
+            </div>
+            <div class="res-box">
+              <span class="res-lbl">400M TRACK SPLIT</span>
+              <span class="res-num text-cyan" id="lab-400-out">1:58.8</span>
+              <span class="res-sub">800m: <span id="lab-800-out">3:57.7</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: TECHNICAL COMPARISON TABLE -->
+    <section id="comparison" class="section-block">
+      <div class="section-header">
+        <span class="eyebrow mono">WHY PLYOSTRIDE</span>
+        <h2>Built for Sovereignty, Not Subscriptions</h2>
+      </div>
+
+      <div class="table-scroll-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Architectural Dimension</th>
+              <th>Mainstream Cloud Fitness Apps</th>
+              <th class="highlight-col">PLYOSTRIDE v1.0.0</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Database & Persistence</strong></td>
+              <td>Proprietary cloud lock-in; requires account login & subscription</td>
+              <td class="highlight-col mono text-green">Local Native SQLite + OPFS + Raw JSON/CSV</td>
+            </tr>
+            <tr>
+              <td><strong>Tendon Pathology Protection</strong></td>
+              <td>None; blindly prescribes volume regardless of tendon pain</td>
+              <td class="highlight-col">Auto-swaps Depth Jumps to 45s Isometrics at Pain ≥ 4/10</td>
+            </tr>
+            <tr>
+              <td><strong>Concurrent Hybrid Interference</strong></td>
+              <td>Treats running and jumping as isolated silos</td>
+              <td class="highlight-col">Hybrid Interference Matrix + ACWR (0.80–1.30) + CNS RHR Gate</td>
+            </tr>
+            <tr>
+              <td><strong>Biomechanical Tooling</strong></td>
+              <td>Basic stopwatch and generic calorie estimates</td>
+              <td class="highlight-col">Slow-Mo Video GCT Scrubber, RSI Physics, 180 SPM / 2.2 Hz Metronomes</td>
+            </tr>
+            <tr>
+              <td><strong>Shoe Midsole Telemetry</strong></td>
+              <td>Simple total mileage counter</td>
+              <td class="highlight-col">24h Foam Decompression Countdown + Court Shoe Contact Counter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: INDEPENDENT APK INSTALLATION PROTOCOL -->
+    <section id="install" class="section-block">
+      <div class="section-header">
+        <span class="eyebrow mono">DEPLOYMENT PROTOCOL</span>
+        <h2>Installation & Native SQLite Verification</h2>
+        <p>PLYOSTRIDE is distributed directly as an independent Android package to guarantee zero telemetry, zero paywalls, and unrestricted local filesystem access.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num mono">STEP 01</div>
+          <h3>Download Release Binary</h3>
+          <p>Tap the <strong>Download Stable APK</strong> button at the top of this page (or visit the <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener">GitHub Releases</a> tab) to pull the latest <code>.apk</code> package to your Android device.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num mono">STEP 02</div>
+          <h3>Authorize Direct Install</h3>
+          <p>Open the downloaded APK. If prompted by Android security, tap <strong>Settings</strong> and toggle <strong>Allow from this source</strong>. On Google Play Protect prompts, tap <strong>More Details → Install Anyway</strong>.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num mono">STEP 03</div>
+          <h3>Calibrate Athlete Tier</h3>
+          <p>Launch PLYOSTRIDE and select your onboarding tier (<strong>Beginner 65%</strong>, <strong>Intermediate 85%</strong>, or <strong>Advanced 100%</strong>) to auto-calibrate all 52 weeks of running mileage, plyometric sets, and rest timers.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num mono">STEP 04</div>
+          <h3>Verify SQLite Native Vault</h3>
+          <p>Navigate to <strong>Data → System → App Icon Studio, Storage & Reset</strong>. Confirm the green <code>SQLite Native ✓ · Auto-Vault ✓</code> indicator is active on your device hardware.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-lockup">
+          <img src="icon.jpg" alt="PLYOSTRIDE" class="footer-icon" onerror="this.style.display='none'" />
+          <span class="logo-text">PLYOSTRIDE</span>
+        </div>
+        <p>Offline-First Hybrid Athlete Operating System. Built with vanilla HTML, CSS, JavaScript, Capacitor, and Native SQLite.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy & Clinical Disclaimer</a>
+        <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener">Releases (APK)</a>
+        <a href="https://github.com/plyostrideos/plyostrideos.github.io" target="_blank" rel="noopener">Source Repository</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© 2026 PLYOSTRIDE OS. All rights reserved.</span>
+      <span>ZERO CLOUD TRACKING · TOTAL DATA SOVEREIGNTY</span>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE LABS, THEME ENGINE & MULTI-REPO APK RESOLVER -->
+  <script>
+    /* 1. Live 5-Theme Switcher */
+    const themeDots = document.querySelectorAll('.theme-dot');
+    themeDots.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-set-theme') || 'carbon';
+        document.documentElement.setAttribute('data-theme', theme);
+        themeDots.forEach(d => d.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    /* 2. Interactive Hero Phone Mockup Tab Switcher */
+    function switchMockTab(tabId, btnEl) {
+      document.querySelectorAll('.mock-view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById('mock-view-' + tabId);
+      if (target) target.classList.add('active');
+      document.querySelectorAll('.mock-nav-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
+
+    /* 3. Live Vertical Jump & RSI Physics Sandbox */
+    function updatePhysicsLab() {
+      const flightMs = parseFloat(document.getElementById('lab-flight-slider').value) || 680;
+      const gctMs = parseFloat(document.getElementById('lab-gct-slider').value) || 175;
+      const reachCm = parseFloat(document.getElementById('lab-reach-slider').value) || 203;
+
+      document.getElementById('lab-flight-val').textContent = flightMs + ' ms';
+      document.getElementById('lab-gct-val').textContent = gctMs + ' ms';
+      document.getElementById('lab-reach-val').textContent = reachCm + ' cm';
+
+      const flightSec = flightMs / 1000;
+      const heightM = (9.80665 * flightSec * flightSec) / 8;
+      const heightCm = (heightM * 100).toFixed(1);
+      const heightIn = (heightM * 39.3701).toFixed(1);
+
+      const touchCm = (reachCm + parseFloat(heightCm)).toFixed(1);
+      const totalInches = parseFloat(touchCm) / 2.54;
+      const ft = Math.floor(totalInches / 12);
+      const remIn = (totalInches % 12).toFixed(1);
+
+      const rsi = (flightSec / (gctMs / 1000)).toFixed(2);
+      let rsiTier = 'Developing';
+      if (rsi >= 3.0) rsiTier = 'Elite Elastic';
+      else if (rsi >= 2.2) rsiTier = 'High Stiffness';
+      else if (rsi >= 1.5) rsiTier = 'Moderate Base';
+
+      document.getElementById('lab-jump-out').textContent = heightCm + ' cm';
+      document.getElementById('lab-jump-in').textContent = heightIn + ' in';
+      document.getElementById('lab-touch-out').textContent = touchCm + ' cm';
+      document.getElementById('lab-touch-ft').textContent = ft + "' " + remIn + '"';
+      document.getElementById('lab-rsi-out').textContent = rsi;
+      document.getElementById('lab-rsi-tier').textContent = rsiTier;
+    }
+
+    /* 4. Live Karvonen HRR & Riegel 10K Predictor Sandbox */
+    function updateKarvonenLab() {
+      const maxHr = parseInt(document.getElementById('lab-maxhr-slider').value, 10) || 203;
+      const rhr = parseInt(document.getElementById('lab-rhr-slider').value, 10) || 52;
+      const fiveKSec = parseInt(document.getElementById('lab-5k-slider').value, 10) || 1425;
+
+      const hrr = Math.max(40, maxHr - rhr);
+      const z2Low = Math.round(rhr + hrr * 0.60);
+      const z2High = Math.round(rhr + hrr * 0.70);
+
+      const fmtMMSS = (sec) => {
+        const m = Math.floor(sec / 60);
+        const s = Math.round(sec % 60);
+        return m + ':' + String(s).padStart(2, '0');
+      };
+
+      const tenKSec = fiveKSec * Math.pow(10000 / 5000, 1.06);
+      const paceKmSec = tenKSec / 10;
+      const paceM = Math.floor(paceKmSec / 60);
+      const paceS = String(Math.round(paceKmSec % 60)).padStart(2, '0');
+
+      const lap400 = (paceKmSec * 0.4);
+      const lap400M = Math.floor(lap400 / 60);
+      const lap400S = (lap400 % 60).toFixed(1).padStart(4, '0');
+
+      const rep800 = (paceKmSec * 0.8);
+      const rep800M = Math.floor(rep800 / 60);
+      const rep800S = (rep800 % 60).toFixed(1).padStart(4, '0');
+
+      document.getElementById('lab-maxhr-val').textContent = maxHr + ' BPM';
+      document.getElementById('lab-rhr-val').textContent = rhr + ' BPM';
+      document.getElementById('lab-5k-val').textContent = fmtMMSS(fiveKSec);
+
+      document.getElementById('lab-z2-out').textContent = z2Low + '–' + z2High;
+      document.getElementById('lab-hrr-sub').textContent = 'HRR: ' + hrr + ' BPM';
+      document.getElementById('lab-10k-out').textContent = fmtMMSS(tenKSec);
+      document.getElementById('lab-pace-sub').textContent = paceM + "'" + paceS + '" / km';
+      document.getElementById('lab-400-out').textContent = lap400M + ':' + lap400S;
+      document.getElementById('lab-800-out').textContent = rep800M + ':' + rep800S;
+    }
+
+    /* 5. Multi-Repo Resilient GitHub Release APK Resolver */
+    async function resolveLatestApk() {
+      const btn = document.getElementById('apk-download-btn');
+      const btnLabel = document.getElementById('apk-btn-label');
+      const navPill = document.getElementById('nav-version-pill');
+      const metaSize = document.getElementById('apk-meta-size');
+      const statusText = document.getElementById('release-status-text');
+
+      const reposToCheck = [
+        'plyostrideos/plyostrideos.github.io',
+        'emmanueltumolva/PLYOSTRIDE'
+      ];
+
+      for (const repo of reposToCheck) {
+        try {
+          const res = await fetch(`https://api.github.com/repos/${repo}/releases`);
+          if (!res.ok) continue;
+          const releases = await res.json();
+          if (!Array.isArray(releases) || releases.length === 0) continue;
+
+          // Prefer stable non-prerelease first, fallback to latest release
+          const stableRelease = releases.find(r => !r.prerelease && !r.draft) || releases[0];
+          const apkAsset = (stableRelease.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));
+
+          const tag = stableRelease.tag_name || 'v1.0.0';
+          if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE';
+          if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · NATIVE SQLITE ENGINE`;
+
+          if (apkAsset) {
+            const sizeMb = (apkAsset.size / (1024 * 1024)).toFixed(1);
+            btn.href = apkAsset.browser_download_url;
+            btnLabel.textContent = `Download ${tag} APK (${sizeMb} MB)`;
+            if (metaSize) metaSize.textContent = `${apkAsset.name} · ${sizeMb} MB`;
+          } else if (stableRelease.html_url) {
+            btn.href = stableRelease.html_url;
+            btnLabel.textContent = `Download ${tag} Release`;
+          }
+          break;
+        } catch (err) {
+          // Proceed to fallback
         }
-        resolveLatestApk();
-    </script>
+      }
+    }
+
+    updatePhysicsLab();
+    updateKarvonenLab();
+    resolveLatestApk();
+  </script>
 </body>
 </html>

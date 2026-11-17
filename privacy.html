@@ -5,34 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | PLYOSTRIDE</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <nav class="top-nav">
+        <a href="index.html" class="logo-container">
+            <div class="app-icon-badge">
+                <img src="icon.png" alt="PLYOSTRIDE" class="custom-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 5L7 31H14.5L20 19L25.5 31H33L20 5Z" stroke="#7DFA32" stroke-width="3.2" stroke-linejoin="round"/>
+                    <path d="M9 28C15 24 25 24 31 28" stroke="#00E5FF" stroke-width="2.8" stroke-linecap="round"/>
+                    <path d="M6 33C14 29 26 29 34 33" stroke="#FF5A28" stroke-width="2.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="logo-text-group">
+                <span class="logo-text">PLYOSTRIDE</span>
+                <span class="version-pill">SQLite · W52 Engine</span>
+            </div>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="btn-nav">← Home</a>
+        </div>
+    </nav>
+
     <div class="legal-container">
-        <h1>Privacy Policy</h1>
+        <h1>Privacy Policy & Disclaimer</h1>
         <p><strong>Effective Date:</strong> November 17, 2026</p>
 
         <h2>1. Absolute Local Sovereignty</h2>
-        <p>PLYOSTRIDE is engineered as an offline-first application. We do not operate cloud servers, databases, or remote telemetry systems. All data you generate—including biometrics, workout logs, GPS running distances, and subjective readiness scores—is written directly to a local SQLite database residing strictly on the internal storage of your device.</p>
+        <p>PLYOSTRIDE is engineered as an offline-first application. We do not operate cloud servers, external databases, or remote telemetry systems. All data you generate—including biometrics, workout logs, running distances, shoe mileage, and readiness scores—is written directly to a local SQLite database residing strictly on your device.</p>
 
         <h2>2. Data Collection and Transmission</h2>
-        <p>We do not collect, harvest, transmit, or sell your data. Because the application has no backend cloud architecture, it is technically impossible for the developer to access your training history or health metrics.</p>
+        <p>We do not collect, harvest, transmit, or sell your personal data. Because the application has no backend cloud architecture, it is technically impossible for the developer to access your training history or physiological metrics.</p>
 
-        <h2>3. Third-Party Analytics</h2>
-        <p>PLYOSTRIDE does not embed third-party advertising SDKs, tracking pixels, or background analytics engines. Your training data is invisible to external marketing firms.</p>
+        <h2>3. User Responsibility & Backups</h2>
+        <p>Because your data is strictly localized, <strong>you are solely responsible for its preservation</strong>. If you uninstall the application, clear your device's application storage, or lose your phone, your data will be permanently erased. Use the System tab inside PLYOSTRIDE to export raw <code>.json</code> and <code>.csv</code> backups regularly.</p>
 
-        <h2>4. User Responsibility & Backups</h2>
-        <p>Because your data is strictly localized, <strong>you are solely responsible for its preservation</strong>. If you uninstall the application, clear your device's application storage, or lose your phone, your data will be permanently destroyed. We provide raw `.json` and `.csv` export tools within the application. You are strongly advised to run manual backups to a secure personal location.</p>
+        <h2>4. Medical & Biomechanical Disclaimer</h2>
+        <p>PLYOSTRIDE is an athletic periodization and biomechanical tracking tool, not a certified medical device. The telemetry provided (including ACWR, Karvonen HRR, and Arch/Tendon protocols) is based on standard sports science literature and is not a substitute for professional medical diagnosis or clinical physical therapy.</p>
 
-        <h2>5. Medical Disclaimer</h2>
-        <p>PLYOSTRIDE is an athletic periodization and biomechanical tracking tool. It is not a certified medical device. The telemetry provided (including ACWR and tendon resilience protocols) is based on standard sports science literature. It is not a substitute for professional medical diagnosis or physical therapy.</p>
-
-        <h2>6. Contact</h2>
-        <p>If you have questions regarding this offline architecture or need assistance with database extraction, submit an issue on the <a href="https://github.com/emmanueltumo/PLYOSTRIDE/issues" style="color: var(--accent-green);">official GitHub repository</a>.</p>
+        <h2>5. Contact & Support</h2>
+        <p>If you have questions regarding this architecture or wish to report a bug, open an issue on the <a href="https://github.com/emmanueltumolva/PLYOSTRIDE/issues" style="color: var(--accent-green);">official GitHub repository</a>.</p>
         
-        <br><br>
-        <a href="index.html" class="btn btn-secondary">← Return to Home</a>
+        <br>
+        <a href="index.html" class="btn btn-secondary">← Return to PLYOSTRIDE</a>
     </div>
 
 </body>

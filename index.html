@@ -2,19 +2,19 @@
 <html lang="en" data-theme="carbon">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="theme-color" content="#000000" />
   <title>PLYOSTRIDE — Offline-First Hybrid Athlete Operating System</title>
   <meta name="description" content="An offline-first, native SQLite athletic operating system engineered for vertical jump plyometrics, 10K running periodization, and clinical tendon load management." />
 
-  <!-- OpenGraph / Social Link Preview (Uses your icon.jpg in the repo root) -->
+  <!-- OpenGraph / Social Link Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="PLYOSTRIDE · Offline-First Hybrid Athlete OS" />
   <meta property="og:description" content="52-week deterministic periodization, ACWR tendon load management, RSI flight physics, and native SQLite storage. Zero cloud lock-in." />
   <meta property="og:url" content="https://plyostrideos.github.io/" />
   <meta property="og:image" content="https://plyostrideos.github.io/icon.jpg" />
 
-  <!-- Crisp Inline SVG Favicon + icon.jpg Touch Fallback -->
+  <!-- Inline SVG Favicon + icon.jpg Fallback -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23232329'/%3E%3Cstop offset='100%25' stop-color='%230E0E12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='118' fill='url(%23g)'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="icon.jpg" />
 
@@ -41,10 +41,10 @@
             </linearGradient>
           </defs>
           <rect width="512" height="512" rx="118" fill="url(#navIconGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="12" />
-          <path class="svg-primary" d="M104 388 C196 306 312 286 414 304" fill="none" stroke="var(--primary)" stroke-width="36" stroke-linecap="round" />
-          <path class="svg-tertiary" d="M126 322 C214 246 318 228 402 244" fill="none" stroke="var(--tertiary)" stroke-width="34" stroke-linecap="round" />
-          <path class="svg-secondary" d="M168 258 L256 116 L344 258" fill="none" stroke="var(--secondary)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
-          <circle class="svg-dot" cx="256" cy="228" r="22" fill="var(--secondary)" />
+          <path d="M104 388 C196 306 312 286 414 304" fill="none" stroke="var(--primary)" stroke-width="36" stroke-linecap="round" />
+          <path d="M126 322 C214 246 318 228 402 244" fill="none" stroke="var(--tertiary)" stroke-width="34" stroke-linecap="round" />
+          <path d="M168 258 L256 116 L344 258" fill="none" stroke="var(--secondary)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="256" cy="228" r="22" fill="var(--secondary)" />
         </svg>
         <div class="brand-text-wrap">
           <span class="logo-text">PLYOSTRIDE</span>
@@ -80,21 +80,21 @@
         </div>
 
         <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener" class="btn-nav" id="nav-github-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
           <span>Releases</span>
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO SECTION WITH INTERACTIVE DEVICE MOCKUP -->
+  <!-- HERO SECTION WITH 1:1 ACTUAL APP MOCKUP -->
   <header class="hero">
     <div class="hero-grid">
       <!-- Left Column: Copy & Download CTA -->
       <div class="hero-copy">
         <div class="status-banner">
           <span class="status-dot"></span>
-          <span class="mono" id="release-status-text">STABLE PRODUCTION BUILD · NATIVE SQLITE ENGINE</span>
+          <span class="mono" id="release-status-text">V1.0.0 STABLE RELEASE · NATIVE SQLITE ENGINE</span>
         </div>
 
         <h1>Deterministic Periodization.<br /><span class="text-gradient">Zero Cloud Lock-In.</span></h1>
@@ -105,8 +105,8 @@
 
         <div class="cta-group">
           <a id="apk-download-btn" href="https://github.com/plyostrideos/plyostrideos.github.io/releases" class="btn btn-primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="apk-btn-label">Download Stable APK</span>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="apk-btn-label">Download v1.0.0 APK</span>
           </a>
           <a href="#physics-lab" class="btn btn-secondary">
             <span>Test Live Physics Lab</span>
@@ -130,83 +130,151 @@
         </div>
       </div>
 
-      <!-- Right Column: Live Interactive PLYOSTRIDE OLED Phone Preview -->
+      <!-- Right Column: Exact 1:1 Interactive PLYOSTRIDE OLED Phone Preview -->
       <div class="hero-device-stage">
         <div class="phone-frame">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <!-- Phone Header -->
+
+            <!-- Exact App Top Header -->
             <div class="mock-header">
               <div class="mock-brand">
-                <img src="icon.jpg" alt="" class="mock-icon-img" onerror="this.style.display='none'" />
+                <svg class="mock-squircle-logo" viewBox="0 0 512 512">
+                  <rect width="512" height="512" rx="118" fill="#18181D" />
+                  <path d="M104 388 C196 306 312 286 414 304" fill="none" stroke="var(--primary)" stroke-width="38" stroke-linecap="round" />
+                  <path d="M126 322 C214 246 318 228 402 244" fill="none" stroke="var(--tertiary)" stroke-width="36" stroke-linecap="round" />
+                  <path d="M168 258 L256 116 L344 258" fill="none" stroke="var(--secondary)" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="256" cy="228" r="24" fill="var(--secondary)" />
+                </svg>
                 <span class="mock-title">PLYOSTRIDE</span>
               </div>
-              <span class="mock-wk-pill mono">W14/52</span>
+              <div class="mock-header-pills mono">
+                <span class="mock-exit-pill">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                  Exit
+                </span>
+                <span class="mock-wk-pill">< W1/52 ></span>
+              </div>
             </div>
 
-            <!-- Interactive Screen View 1: TODAY -->
+            <!-- Interactive Screen View 1: TODAY (Exact Replica with Philippians 4:13 & 100% Completed State) -->
             <div class="mock-view active" id="mock-view-today">
+              <!-- Philippians 4:13 Card -->
               <div class="mock-verse">
-                <span class="mono" style="font-size:10px;color:var(--text-dim);">PHILIPPIANS 4:13</span>
-                <div style="font-size:11.5px;color:#D4D4D8;">"I can do all this through him who gives me strength."</div>
+                <div class="mono mock-verse-ref">PHILIPPIANS 4:13</div>
+                <div class="mock-verse-text">"I can do all this through him who gives me strength."</div>
               </div>
 
-              <!-- Concentric Tilted Stadium Rings -->
+              <!-- 100% Completed Tilted Concentric Stadium Rings + Tick Track -->
               <div class="mock-rings-wrap">
-                <svg class="mock-stadium-svg" viewBox="0 0 260 210">
-                  <g transform="translate(130, 105) rotate(-42) translate(-130, -105)">
-                    <rect x="34" y="36" width="192" height="138" rx="69" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
-                    <rect x="34" y="36" width="192" height="138" rx="69" fill="none" stroke="var(--primary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="18" />
-                    <rect x="55" y="57" width="150" height="96" rx="48" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
-                    <rect x="55" y="57" width="150" height="96" rx="48" fill="none" stroke="var(--secondary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="14" />
-                    <rect x="76" y="78" width="108" height="54" rx="27" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="16" />
-                    <rect x="76" y="78" width="108" height="54" rx="27" fill="none" stroke="var(--tertiary)" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="8" />
+                <svg class="mock-stadium-svg" viewBox="0 0 280 216" aria-label="100% Completed Activity Rings">
+                  <defs>
+                    <filter id="ringGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3.5" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <g transform="translate(140, 108) rotate(-42) translate(-140, -108)">
+                    <!-- Subtle Precision Stadium Tick Marks Behind Loops -->
+                    <rect x="34" y="34" width="212" height="148" rx="74" fill="none" stroke="rgba(255,90,31,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
+                    <rect x="56" y="56" width="168" height="104" rx="52" fill="none" stroke="rgba(146,232,42,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
+                    <rect x="78" y="78" width="124" height="60" rx="30" fill="none" stroke="rgba(43,196,243,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
+
+                    <!-- 100% Completed Full Concentric Stadium Rings -->
+                    <rect x="34" y="34" width="212" height="148" rx="74" fill="none" stroke="var(--primary)" stroke-width="14" stroke-linecap="round" filter="url(#ringGlow)" />
+                    <rect x="56" y="56" width="168" height="104" rx="52" fill="none" stroke="var(--secondary)" stroke-width="14" stroke-linecap="round" filter="url(#ringGlow)" />
+                    <rect x="78" y="78" width="124" height="60" rx="30" fill="none" stroke="var(--tertiary)" stroke-width="14" stroke-linecap="round" filter="url(#ringGlow)" />
+
+                    <!-- Glowing Completion Cap Dots -->
+                    <circle cx="140" cy="34" r="7.5" fill="var(--primary)" stroke="#000" stroke-width="2" />
+                    <circle cx="140" cy="56" r="7.5" fill="var(--secondary)" stroke="#000" stroke-width="2" />
+                    <circle cx="140" cy="78" r="7.5" fill="var(--tertiary)" stroke="#000" stroke-width="2" />
                   </g>
                 </svg>
+
                 <div class="mock-badge-left mono">
-                  <span style="font-size:9px;color:var(--text-dim);">RECOVERY</span>
-                  <span style="font-size:11px;color:var(--secondary);font-weight:700;">0h · Ready</span>
+                  <span class="mock-b-lbl">RECOVERY</span>
+                  <span class="mock-b-val text-green">0h · Ready</span>
                 </div>
                 <div class="mock-badge-right mono">
-                  <span style="font-size:9px;color:var(--secondary);">MO 4</span>
-                  <span style="font-size:11px;font-weight:700;">Force Load</span>
+                  <span class="mock-b-lbl text-green">MO 1</span>
+                  <span class="mock-b-val">W1/52</span>
                 </div>
               </div>
 
-              <!-- 3-Col Metrics -->
+              <!-- 3-Column Metrics + 7-Day Strip Card (100% Completed) -->
               <div class="mock-card">
-                <div class="mock-3col mono">
+                <div class="mock-3col">
                   <div>
-                    <div class="mock-m-lbl">Run</div>
-                    <div class="mock-m-val">27.0</div>
-                    <div class="mock-m-sub">/33 km</div>
+                    <div class="mock-m-lbl">
+                      <span class="dot-flame"></span> Run
+                    </div>
+                    <div class="mock-m-val mono">29.0</div>
+                    <div class="mock-m-sub mono">/29 km</div>
                   </div>
                   <div>
-                    <div class="mock-m-lbl">Days</div>
-                    <div class="mock-m-val">6</div>
-                    <div class="mock-m-sub">/7</div>
+                    <div class="mock-m-lbl">
+                      <span class="text-green">✓</span> Days
+                    </div>
+                    <div class="mock-m-val mono">7</div>
+                    <div class="mock-m-sub mono">/7</div>
                   </div>
                   <div>
-                    <div class="mock-m-lbl">Today</div>
-                    <div class="mock-m-val text-cyan">92%</div>
-                    <div class="mock-m-sub">MON</div>
+                    <div class="mock-m-lbl">
+                      <span class="dot-clock"></span> Today
+                    </div>
+                    <div class="mock-m-val mono">100%</div>
+                    <div class="mock-m-sub mono">TUE</div>
                   </div>
+                </div>
+
+                <!-- 7-Day Strip with Completed Dots -->
+                <div class="mock-week-strip mono">
+                  <div class="mock-day done"><span>MON</span><i></i></div>
+                  <div class="mock-day active done"><span>TUE</span><i></i></div>
+                  <div class="mock-day done"><span>WED</span><i></i></div>
+                  <div class="mock-day done"><span>THU</span><i></i></div>
+                  <div class="mock-day done"><span>FRI</span><i></i></div>
+                  <div class="mock-day done"><span>SAT</span><i></i></div>
+                  <div class="mock-day done"><span>SUN</span><i></i></div>
                 </div>
               </div>
 
-              <!-- ACWR Mini Card -->
-              <div class="mock-card">
-                <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;">
-                  <span>ACWR & Tendon Gate</span>
-                  <span class="mono text-green">1.06 · Sweet Spot</span>
+              <!-- Neon Green Start Workout Button -->
+              <button type="button" class="mock-start-btn" onclick="switchMockTab('workout', document.querySelectorAll('.mock-nav-item')[1])">
+                <span>▶</span> Start Workout · TUE (~62 mins)
+              </button>
+
+              <!-- 100% Goal Completion Card -->
+              <div class="mock-card mock-goal-card">
+                <div class="mock-goal-head">
+                  <div class="mock-goal-title">
+                    <span class="mock-goal-icon">▶</span>
+                    <span>Goal completion</span>
+                  </div>
+                  <div class="mock-goal-actions mono">
+                    <span class="pill-session">+ Session</span>
+                    <span class="pill-run">+ Run</span>
+                  </div>
                 </div>
-                <div class="mock-acwr-bar">
-                  <div class="mock-acwr-pin" style="left:52%;"></div>
+
+                <div class="mock-goal-pct mono text-green">100%</div>
+                <div class="mock-goal-bar-track">
+                  <div class="mock-goal-bar-fill" style="width: 100%;"></div>
                 </div>
-                <div class="mono" style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--text-dim);">
-                  <span>0.80 Low</span>
-                  <span>66 / 90 Plyo Contacts</span>
-                  <span>>1.50 Spike</span>
+
+                <div class="mock-goal-split mono">
+                  <div class="mock-goal-col">
+                    <div class="mock-goal-num">29.0<span>km</span></div>
+                    <div class="mock-goal-sub">Goal</div>
+                  </div>
+                  <div class="mock-goal-col">
+                    <div class="mock-goal-num text-green">29.0<span>km</span></div>
+                    <div class="mock-goal-sub">Completed</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -215,8 +283,8 @@
             <div class="mock-view" id="mock-view-workout">
               <div class="mock-card">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-                  <span style="font-size:12px;font-weight:700;">Monday · Jump & Strength</span>
-                  <span class="mock-tag mono">LVL: ADV</span>
+                  <span style="font-size:12px;font-weight:700;">Tuesday · Jump & Strength</span>
+                  <span class="mock-tag mono">100% DONE</span>
                 </div>
                 <div class="mock-ex-item done">
                   <span class="mock-chk">✓</span>
@@ -232,77 +300,126 @@
                     <div class="mock-ex-rx mono">3 × 5 · 120s rest · <span class="text-cyan">GCT <185ms</span></div>
                   </div>
                 </div>
-                <div class="mock-ex-item">
-                  <span class="mock-chk-open"></span>
+                <div class="mock-ex-item done">
+                  <span class="mock-chk">✓</span>
                   <div>
                     <div class="mock-ex-name">Tempo Bulgarian Split Squats</div>
                     <div class="mock-ex-rx mono">3 × 6 / leg · 25 lb DBs</div>
                   </div>
                 </div>
-                <div class="mock-ex-item">
-                  <span class="mock-chk-open"></span>
+                <div class="mock-ex-item done">
+                  <span class="mock-chk">✓</span>
                   <div>
                     <div class="mock-ex-name">4-Part Arch & Soleus Shield</div>
                     <div class="mock-ex-rx mono">Short Foot · Tibialis · Soleus Iso</div>
                   </div>
                 </div>
               </div>
-              <div class="mock-card" style="border-color:rgba(250,204,21,0.3);">
-                <div style="font-size:11px;font-weight:700;color:#FACC15;">⚡ Keith Baar Tendon Guard</div>
+              <div class="mock-card" style="border-color:rgba(146,232,42,0.3);">
+                <div style="font-size:11px;font-weight:700;color:var(--secondary);">✓ Keith Baar Tendon Gate Passed</div>
                 <div style="font-size:10.5px;color:var(--text-dim);margin-top:3px;">
-                  If post-session Achilles or patellar stiffness ≥ 4/10, Depth Jumps automatically swap to 5 × 45s analgesic isometric holds.
+                  Post-session Achilles & patellar check-in logged at 1/10 stiffness. Optimal elastic tendon remodeling unlocked.
                 </div>
               </div>
             </div>
 
-            <!-- Interactive Screen View 3: DATA VAULT -->
+            <!-- Interactive Screen View 3: TRENDS (ACWR & Mileage) -->
+            <div class="mock-view" id="mock-view-trends">
+              <div class="mock-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;font-weight:700;">
+                  <span>ACWR Workload Ratio</span>
+                  <span class="mono text-green">1.06 · Sweet Spot</span>
+                </div>
+                <div class="mock-acwr-bar">
+                  <div class="mock-acwr-pin" style="left:52%;"></div>
+                </div>
+                <div class="mono" style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--text-dim);">
+                  <span>0.80 Low</span>
+                  <span>66 / 90 Plyo Contacts</span>
+                  <span>>1.50 Spike</span>
+                </div>
+              </div>
+              <div class="mock-card">
+                <div style="font-size:11.5px;font-weight:700;margin-bottom:6px;">Weekly Goal Progression</div>
+                <div class="mono" style="font-size:11px;display:flex;justify-content:space-between;">
+                  <span>Aerobic Zone 2 Volume</span>
+                  <span class="text-green">29.0 / 29.0 km (100%)</span>
+                </div>
+                <div class="mono" style="font-size:11px;display:flex;justify-content:space-between;margin-top:5px;">
+                  <span>Max Vertical Jump PR</span>
+                  <span class="text-cyan">56.7 cm · RSI 3.89</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Screen View 4: TOOLS -->
+            <div class="mock-view" id="mock-view-tools">
+              <div class="mock-card">
+                <div style="font-size:12px;font-weight:700;margin-bottom:6px;">On-Board Biomechanical Lab</div>
+                <div class="mono" style="font-size:10.5px;color:var(--text-dim);line-height:1.6;">
+                  • Flight-Time Jump & RSI: <span class="text-green">h = g·t²/8</span><br />
+                  • Slow-Mo Video GCT Scrubber (240 FPS)<br />
+                  • Run Cadence Metronome: <span class="text-orange">180 SPM</span><br />
+                  • Pogo Stiffness Rhythm: <span class="text-cyan">2.2 Hz (132 BPM)</span><br />
+                  • Keith Baar 5×45s Isometric Timer
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Screen View 5: DATA -->
             <div class="mock-view" id="mock-view-data">
               <div class="mock-card">
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-                  <span style="font-size:12px;font-weight:700;">Athlete Telemetry</span>
+                  <span style="font-size:12px;font-weight:700;">Database & Athlete Vault</span>
                   <span class="mock-tag mono text-green">SQLite Native ✓</span>
                 </div>
                 <div class="mock-3col mono" style="margin-bottom:8px;">
                   <div>
                     <div class="mock-m-lbl">Height</div>
-                    <div class="mock-m-val" style="font-size:15px;">158 cm</div>
+                    <div class="mock-m-val" style="font-size:14px;">158 cm</div>
                   </div>
                   <div>
                     <div class="mock-m-lbl">Weight</div>
-                    <div class="mock-m-val" style="font-size:15px;">53.0 kg</div>
+                    <div class="mock-m-val" style="font-size:14px;">53.0 kg</div>
                   </div>
                   <div>
                     <div class="mock-m-lbl">Reach</div>
-                    <div class="mock-m-val" style="font-size:15px;">203 cm</div>
+                    <div class="mock-m-val" style="font-size:14px;">203 cm</div>
                   </div>
                 </div>
                 <div class="mono" style="font-size:10px;color:var(--secondary);padding-top:6px;border-top:1px solid var(--hairline);">
-                  Karvonen HRR: 151 BPM · Zone 2: 143–158 BPM
-                </div>
-              </div>
-
-              <div class="mock-card">
-                <div style="font-size:11.5px;font-weight:700;margin-bottom:6px;">Shoe Midsole Decompression</div>
-                <div style="font-size:11px;display:flex;justify-content:space-between;" class="mono">
-                  <span>Xtep 2000 km 5.0</span>
-                  <span class="text-cyan">312 / 1200 km</span>
-                </div>
-                <div style="font-size:11px;display:flex;justify-content:space-between;margin-top:4px;" class="mono">
-                  <span>361° Flame 5 Mix</span>
-                  <span class="text-orange">148 / 1000 km</span>
+                  3.5 KB / 5,120 KB (0.1%) · SQLite Native ✓ · Auto-Vault ✓
                 </div>
               </div>
             </div>
 
-            <!-- Interactive Phone Bottom Nav (Visitors can click!) -->
+            <!-- Exact 5-Tab Bottom Bar Matching the Real APK -->
             <div class="mock-bottom-nav">
-              <button type="button" class="mock-nav-btn active" onclick="switchMockTab('today', this)">Today</button>
-              <button type="button" class="mock-nav-btn" onclick="switchMockTab('workout', this)">Workout</button>
-              <button type="button" class="mock-nav-btn" onclick="switchMockTab('data', this)">Data Vault</button>
+              <button type="button" class="mock-nav-item active" onclick="switchMockTab('today', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="8"/></svg>
+                <span>Today</span>
+              </button>
+              <button type="button" class="mock-nav-item" onclick="switchMockTab('workout', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4" r="2"/><path d="M10.5 9.5 7 12l3 3.5"/><path d="m14 9.5 3.5 2.5-2.5 4.5"/><path d="m8 20 3-4.5 2.5 1.5L16 21"/></svg>
+                <span>Workout</span>
+              </button>
+              <button type="button" class="mock-nav-item" onclick="switchMockTab('trends', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <span>Trends</span>
+              </button>
+              <button type="button" class="mock-nav-item" onclick="switchMockTab('tools', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+                <span>Tools</span>
+              </button>
+              <button type="button" class="mock-nav-item" onclick="switchMockTab('data', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5"/></svg>
+                <span>Data</span>
+              </button>
             </div>
+
           </div>
         </div>
-        <div class="mockup-caption mono">↑ Interactive Preview: Click tabs inside the phone or switch themes in the top bar</div>
+        <div class="mockup-caption mono">↑ Interactive 1:1 App Preview: Tap bottom tabs or switch OLED themes in the top bar</div>
       </div>
     </div>
   </header>
@@ -321,7 +438,7 @@
         <article class="bento-card bento-wide">
           <div class="bento-top">
             <span class="bento-badge mono text-green">01 · NATIVE PERSISTENCE</span>
-            <span class="mono" style="font-size:11px;color:var(--text-dim);">@capacitor-community/sqlite</span>
+            <span class="mono bento-sub-tag">@capacitor-community/sqlite</span>
           </div>
           <h3>3-Tier Native SQLite + OPFS Hardware Vault</h3>
           <p>
@@ -345,7 +462,7 @@
           </div>
           <h3>52-Week Periodization & Race Reverse-Engineering</h3>
           <p>
-            Progresses systematically from Zone 2 Aerobic Base & Tendon Armor (Months 1–3) to Force Load, Track Intervals ($6\times 800\text{m}$), and Championship Taper. Input any target 10K race date to reverse-engineer your current training week and auto-scale volume across Beginner (65%), Intermediate (85%), or Advanced (100%) tiers.
+            Progresses systematically from Zone 2 Aerobic Base & Tendon Armor (Months 1–3) to Force Load, Track Intervals (6×800m), and Championship Taper. Input any target 10K race date to reverse-engineer your current training week and auto-scale volume across Beginner (65%), Intermediate (85%), or Advanced (100%) tiers.
           </p>
         </article>
 
@@ -362,11 +479,11 @@
         <article class="bento-card bento-wide">
           <div class="bento-top">
             <span class="bento-badge mono text-cyan">05 · BIOMECHANICS & GEAR TELEMETRY</span>
-            <span class="mono" style="font-size:11px;color:var(--text-dim);">EVA / PEBAX Foam Recovery</span>
+            <span class="mono bento-sub-tag">EVA / PEBAX Foam Recovery</span>
           </div>
           <h3>Midsole Foam Decompression & Slow-Mo Video GCT Scrubber</h3>
           <p>
-            Running shoe midsoles require 24 hours to decompress after runs $\ge 10\text{ km}$. PLYOSTRIDE enforces shoe rotation between Zone 2 mileage trainers and carbon/tempo racers while counting cumulative jump contacts on your court shoes. Includes an on-board slow-motion video frame scrubber (60/120/240 FPS) to measure exact Ground Contact Time (GCT) and Reactive Strength Index (RSI).
+            Running shoe midsoles require 24 hours to decompress after runs ≥ 10 km. PLYOSTRIDE enforces shoe rotation between Zone 2 mileage trainers and carbon/tempo racers while counting cumulative jump contacts on your court shoes. Includes an on-board slow-motion video frame scrubber (60/120/240 FPS) to measure exact Ground Contact Time (GCT) and Reactive Strength Index (RSI).
           </p>
         </article>
       </div>
@@ -387,7 +504,7 @@
             <h3>Vertical Jump & RSI Physics</h3>
             <span class="mono pill-code">h = g · t² / 8</span>
           </div>
-          <p class="sandbox-desc">Computes vertical displacement from gravitational flight time ($g = 9.80665\text{ m/s}^2$) and evaluates elastic ankle stiffness via Reactive Strength Index ($\text{RSI} = \text{Flight Time} / \text{GCT}$).</p>
+          <p class="sandbox-desc">Computes vertical displacement from gravitational flight time (g = 9.80665 m/s²) and evaluates elastic ankle stiffness via Reactive Strength Index (RSI = Flight Time / GCT).</p>
 
           <div class="control-group">
             <div class="control-label">
@@ -438,11 +555,11 @@
             <h3>Karvonen HRR & Riegel 10K Engine</h3>
             <span class="mono pill-code">T₂ = T₁ · (D₂/D₁)^1.06</span>
           </div>
-          <p class="sandbox-desc">Calibrates aerobic Zone 2 thresholds using Heart Rate Reserve ($\text{HRR} = \text{HR}_{\max} - \text{RHR}$) so endurance mileage never cannibalizes fast-twitch CNS jump recovery.</p>
+          <p class="sandbox-desc">Calibrates aerobic Zone 2 thresholds using Heart Rate Reserve (HRR = Max HR − RHR) so endurance mileage never cannibalizes fast-twitch CNS jump recovery.</p>
 
           <div class="control-group">
             <div class="control-label">
-              <span>Max Heart Rate ($\text{HR}_{\max}$)</span>
+              <span>Max Heart Rate (HRmax)</span>
               <span class="mono text-orange" id="lab-maxhr-val">203 BPM</span>
             </div>
             <input type="range" min="160" max="220" step="1" value="203" id="lab-maxhr-slider" oninput="updateKarvonenLab()" />
@@ -544,7 +661,7 @@
         <div class="step-card">
           <div class="step-num mono">STEP 01</div>
           <h3>Download Release Binary</h3>
-          <p>Tap the <strong>Download Stable APK</strong> button at the top of this page (or visit the <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener">GitHub Releases</a> tab) to pull the latest <code>.apk</code> package to your Android device.</p>
+          <p>Tap the <strong>Download APK</strong> button at the top of this page (or visit the <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener">GitHub Releases</a> tab) to pull the latest <code>.apk</code> package to your Android device.</p>
         </div>
 
         <div class="step-card">
@@ -562,7 +679,7 @@
         <div class="step-card">
           <div class="step-num mono">STEP 04</div>
           <h3>Verify SQLite Native Vault</h3>
-          <p>Navigate to <strong>Data → System → App Icon Studio, Storage & Reset</strong>. Confirm the green <code>SQLite Native ✓ · Auto-Vault ✓</code> indicator is active on your device hardware.</p>
+          <p>Navigate to <strong>Data → App Icon Studio, Storage & Reset</strong>. Confirm the green <code>SQLite Native ✓ · Auto-Vault ✓</code> indicator is active on your device hardware.</p>
         </div>
       </div>
     </section>
@@ -611,7 +728,7 @@
       document.querySelectorAll('.mock-view').forEach(v => v.classList.remove('active'));
       const target = document.getElementById('mock-view-' + tabId);
       if (target) target.classList.add('active');
-      document.querySelectorAll('.mock-nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.mock-nav-item').forEach(b => b.classList.remove('active'));
       if (btnEl) btnEl.classList.add('active');
     }
 
@@ -710,7 +827,6 @@
           const releases = await res.json();
           if (!Array.isArray(releases) || releases.length === 0) continue;
 
-          // Prefer stable non-prerelease first, fallback to latest release
           const stableRelease = releases.find(r => !r.prerelease && !r.draft) || releases[0];
           const apkAsset = (stableRelease.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));
 

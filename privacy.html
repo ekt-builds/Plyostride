@@ -3,89 +3,250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Privacy Policy & Clinical Disclaimer | PLYOSTRIDE</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='118' fill='%23121215'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#000000" />
+  <title>Privacy Policy, Data Architecture & Clinical Disclaimer | PLYOSTRIDE</title>
+  <meta name="description" content="Complete zero-cloud privacy architecture, Android APK permission audit, native SQLite data lifecycle, and orthopedic/biomechanical disclaimer for PLYOSTRIDE OS." />
+
+  <!-- Crisp Inline SVG Favicon + icon.jpg Touch Fallback -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23232329'/%3E%3Cstop offset='100%25' stop-color='%230E0E12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='118' fill='url(%23g)'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="icon.jpg" />
+
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- AMBIENT RADIAL GLOW -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- STICKY HYPEROS NAVIGATION BAR (WITH LIVE 5-THEME SWITCHER) -->
   <nav class="top-nav">
     <div class="nav-inner">
       <a href="index.html" class="brand-lockup">
-        <img src="icon.jpg" alt="" class="footer-icon" onerror="this.style.display='none'" />
+        <svg class="brand-squircle" viewBox="0 0 512 512" aria-label="PLYOSTRIDE Icon">
+          <defs>
+            <linearGradient id="navIconGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#25252B" />
+              <stop offset="100%" stop-color="#101014" />
+            </linearGradient>
+          </defs>
+          <rect width="512" height="512" rx="118" fill="url(#navIconGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="12" />
+          <path d="M104 388 C196 306 312 286 414 304" fill="none" stroke="var(--primary)" stroke-width="36" stroke-linecap="round" />
+          <path d="M126 322 C214 246 318 228 402 244" fill="none" stroke="var(--tertiary)" stroke-width="34" stroke-linecap="round" />
+          <path d="M168 258 L256 116 L344 258" fill="none" stroke="var(--secondary)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="256" cy="228" r="22" fill="var(--secondary)" />
+        </svg>
         <div class="brand-text-wrap">
           <span class="logo-text">PLYOSTRIDE</span>
           <span class="version-pill mono">DATA SOVEREIGNTY</span>
         </div>
       </a>
+
+      <div class="nav-links">
+        <a href="#sovereignty">Zero-Cloud Policy</a>
+        <a href="#sqlite-lifecycle">SQLite Lifecycle</a>
+        <a href="#permissions">APK Audit</a>
+        <a href="#clinical-disclaimer">Clinical Disclaimer</a>
+      </div>
+
       <div class="nav-actions">
-        <a href="index.html" class="btn-nav">← Back to Overview</a>
+        <!-- Live 5-Theme Switcher -->
+        <div class="theme-switcher" role="group" aria-label="OLED Theme Preview">
+          <button type="button" class="theme-dot active" data-set-theme="carbon" title="PLYOSTRIDE Carbon (Default)">
+            <span style="background:#FF5A1F;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="cobalt" title="Cobalt Velocity">
+            <span style="background:#3B82F6;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="emerald" title="Emerald Bio-Lab">
+            <span style="background:#10B981;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="crimson" title="Crimson Apex">
+            <span style="background:#F43F5E;"></span>
+          </button>
+          <button type="button" class="theme-dot" data-set-theme="amethyst" title="Amethyst Neuro">
+            <span style="background:#A855F7;"></span>
+          </button>
+        </div>
+
+        <a href="index.html" class="btn-nav">← Home</a>
       </div>
     </div>
   </nav>
 
+  <!-- MAIN LEGAL, ARCHITECTURAL & CLINICAL DOCUMENTATION -->
   <main class="legal-container">
     <div class="section-header">
-      <span class="eyebrow mono">LEGAL & DATA ARCHITECTURE</span>
-      <h2>Privacy Policy & Clinical Disclaimer</h2>
-      <p class="mono" style="font-size:11.5px; color: var(--text-dim);">Effective Date: November 2026 · Version 1.0.0 Stable</p>
+      <span class="eyebrow mono">LEGAL, SECURITY & CLINICAL GOVERNANCE</span>
+      <h2>Privacy Architecture, APK Security Audit & Biomechanical Disclaimer</h2>
+      <p class="mono" style="font-size:11.5px; color: var(--text-dim); margin-top: 6px;">
+        Effective Date: November 2026 · Build Target: PLYOSTRIDE v1.0.0 Stable (com.plyostride.app)
+      </p>
     </div>
 
-    <section class="legal-card">
+    <!-- 1. ZERO-CLOUD DATA SOVEREIGNTY -->
+    <section id="sovereignty" class="legal-card">
       <h2>1. Absolute Data Sovereignty (Zero-Cloud Architecture)</h2>
       <p>
-        <strong>PLYOSTRIDE</strong> is engineered on a strict offline-first, local-storage architecture. Unlike commercial fitness platforms, PLYOSTRIDE operates with <strong>zero external analytics servers, zero advertising SDKs, and zero telemetry tracking</strong>.
+        <strong>PLYOSTRIDE</strong> is engineered on a strict offline-first, local-execution architecture. Unlike commercial fitness platforms that monetize biometric telemetry or lock historical workout logs behind recurring cloud subscriptions, PLYOSTRIDE operates with <strong>zero external analytics servers, zero advertising SDKs, zero crash-reporting beacons, and zero background telemetry</strong>.
       </p>
       <ul>
-        <li><strong>On-Device SQLite Persistence:</strong> All biometric inputs (height, weight, standing reach, Max/Resting Heart Rate), workout logs, weekly benchmarks, and shoe mileage records are written exclusively to your device's internal SQLite database (<code>plyostride_vault</code>), Origin Private File System (OPFS), and local IndexedDB vault.</li>
-        <li><strong>No Account Required:</strong> You never register an email address, phone number, or password to use PLYOSTRIDE.</li>
-        <li><strong>User-Controlled Portability:</strong> Your data leaves your device only when you explicitly trigger a <code>.json</code> backup, <code>.csv</code> training log export, Sync Code copy, or optional user-configured REST webhook/API request.</li>
+        <li><strong>No Identity Harvesting:</strong> PLYOSTRIDE never requests, collects, or processes your name, email address, phone number, physical GPS route coordinates, IP address, or device advertising identifiers (GAID).</li>
+        <li><strong>Multi-Profile Isolation:</strong> Athlete profiles created inside the app (e.g., <em>Primary Athlete</em>, <em>Friend Profile</em>) are isolated via deterministic key prefixes inside your local device storage and are never synced to any central directory.</li>
+        <li><strong>Zero Silent Network Traffic:</strong> When you open PLYOSTRIDE, log a workout, calculate Reactive Strength Index (RSI), or scrub slow-motion jump footage, <code>0 bytes</code> of network traffic are transmitted to PLYOSTRIDE developers.</li>
       </ul>
     </section>
 
+    <!-- 2. 3-TIER NATIVE SQLITE STORAGE & SANDBOX LIFECYCLE -->
+    <section id="sqlite-lifecycle" class="legal-card">
+      <h2>2. On-Device SQLite Persistence & Sandbox Lifecycle</h2>
+      <p>
+        To guarantee resilience against mobile browser cache eviction while maintaining total privacy, PLYOSTRIDE writes your training state across a redundant 3-tier local storage hierarchy on your device:
+      </p>
+      <ul>
+        <li><strong>Tier 1 — Native Android SQLite Vault:</strong> On physical Android devices running the compiled Capacitor APK, all state keys, biometric profiles, 52-week logs, and shoe odometers are committed directly to a native SQLite relational table located at <code>/data/data/com.plyostride.app/databases/plyostride_vault</code> via <code>@capacitor-community/sqlite</code>.</li>
+        <li><strong>Tier 2 — Origin Private File System (OPFS) & IndexedDB Mirror:</strong> Every state mutation automatically writes an asynchronous snapshot (`plyostride_auto_vault.json`) to the hardware-backed Origin Private File System and IndexedDB (`PLYOSTRIDE_PERSISTENT_VAULT_DB`), requesting persistent OS storage allocation via <code>navigator.storage.persist()</code>.</li>
+        <li><strong>Tier 3 — User-Bound Auto-Save & Manual Exports:</strong> Users can export raw <code>.json</code> full-database backups, <code>.csv</code> training spreadsheets, clean schedule templates, or Base64 Sync Codes at any time from the <strong>Data</strong> tab.</li>
+      </ul>
+      <p style="margin-top: 12px; padding: 12px; background: rgba(255, 90, 31, 0.08); border-left: 3px solid var(--primary); border-radius: 6px;">
+        <strong>CRITICAL DATA RETENTION WARNING (ANDROID OS SANDBOX):</strong> Because PLYOSTRIDE stores 100% of your data locally on your phone and maintains zero cloud copies, <strong>uninstalling the PLYOSTRIDE APK or selecting "Clear Storage / Clear Data" in Android System Settings will permanently destroy your internal SQLite database</strong>. Always use the <strong>Download .json</strong> or <strong>Export Log (.csv)</strong> buttons in the Data tab to save an external backup copy to your phone's Downloads folder or personal cloud drive before uninstalling or switching devices. When installing a newer APK version with the same signing key, install it directly over the existing app to preserve your SQLite database in place.
+      </p>
+    </section>
+
+    <!-- 3. ANDROID APK PERMISSION & TELEMETRY AUDIT MATRIX -->
+    <section id="permissions" class="legal-card">
+      <h2>3. Android APK Permission & Hardware Audit Matrix</h2>
+      <p>
+        PLYOSTRIDE is distributed as an independent Android APK (`com.plyostride.app`) to prevent third-party app store censorship and forced telemetry bundling. Below is the complete audit of hardware capabilities accessed by the application:
+      </p>
+
+      <div class="table-scroll-wrap" style="margin: 16px 0;">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Android Subsystem / Permission</th>
+              <th>Status in APK</th>
+              <th class="highlight-col">Exact Technical Purpose & Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Internal SQLite & Scoped Storage</strong></td>
+              <td class="mono text-green">ACTIVE (LOCAL)</td>
+              <td class="highlight-col">Reads/writes <code>plyostride_vault</code> SQLite records and exports user-initiated <code>.json</code>, <code>.csv</code>, <code>.png</code>, and <code>.svg</code> files via <code>@capacitor/filesystem</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>Screen WakeLock & Haptics</strong></td>
+              <td class="mono text-green">ACTIVE (IN-SESSION)</td>
+              <td class="highlight-col">Keeps the OLED display awake during active Guided Workout timers, Keith Baar 45s isometric holds, and 180 SPM / 2.2 Hz cadence metronomes.</td>
+            </tr>
+            <tr>
+              <td><strong>Local Video File Blob Reader</strong></td>
+              <td class="mono text-green">LOCAL RAM ONLY</td>
+              <td class="highlight-col">Loads user-selected slow-motion jump videos into local memory via <code>URL.createObjectURL()</code> for frame-by-frame GCT/RSI calculation. Videos never leave the device.</td>
+            </tr>
+            <tr>
+              <td><strong>Internet Socket (<code>android.permission.INTERNET</code>)</strong></td>
+              <td class="mono text-cyan">IDLE BY DEFAULT</td>
+              <td class="highlight-col">Remains completely dormant unless the user explicitly configures an optional BYOK Gemini API key or custom Cloud Vault webhook URL.</td>
+            </tr>
+            <tr>
+              <td><strong>GPS Location, Contacts, Microphone & Camera Recording</strong></td>
+              <td class="mono text-orange">NOT PRESENT (0%)</td>
+              <td class="highlight-col">PLYOSTRIDE contains zero location tracking, zero contact reading, zero microphone listening, and zero background service daemons.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. OPTIONAL BYOK (BRING YOUR OWN KEY) API CONNECTIONS -->
     <section class="legal-card">
-      <h2>2. Optional Third-Party API Connections (BYOK)</h2>
+      <h2>4. Optional Third-Party API Connections (BYOK Architecture)</h2>
       <p>
-        PLYOSTRIDE includes a built-in deterministic sports-science advisor that functions 100% offline. If you optionally choose to enter a personal <strong>Google Gemini API Key</strong> or a custom <strong>Cloud Vault URL</strong>:
+        PLYOSTRIDE features a built-in, deterministic Sports-Science Telemetry Advisor that runs <strong>100% offline</strong> using local biomechanical rules (evaluating ACWR, RHR elevation, tendon pain gates, and shoe foam status).
       </p>
       <ul>
-        <li>Your API key is stored strictly inside your local device database and is never transmitted to PLYOSTRIDE developers.</li>
-        <li>Requests are sent directly from your device to the endpoint you configured.</li>
+        <li><strong>Optional Google Gemini API Integration:</strong> If you voluntarily enter a personal Google Gemini API Key inside the Coach settings, your key is stored strictly inside your local device database. When you submit a prompt in Cloud Mode, your query and current workout context are transmitted directly from your device to Google's `generativelanguage.googleapis.com` endpoint under Google's API Terms of Service.</li>
+        <li><strong>Optional Custom Cloud Vault Webhook:</strong> If you voluntarily enter a personal REST endpoint (such as a private Cloudflare Worker, Supabase instance, or self-hosted server), JSON sync payloads are sent exclusively to the URL you specified. PLYOSTRIDE developers never intercept, proxy, or have access to your keys or endpoints.</li>
       </ul>
     </section>
 
+    <!-- 5. CLINICAL, ORTHOPEDIC & BIOMECHANICAL DISCLAIMER -->
+    <section id="clinical-disclaimer" class="legal-card" style="border-color:rgba(255, 90, 31, 0.45);">
+      <h2>5. Clinical, Orthopedic & Biomechanical Assumption of Risk</h2>
+      <p>
+        <strong>PLYOSTRIDE IS AN ATHLETIC PERIODIZATION CALCULATOR AND TELEMETRY TRACKER, NOT A MEDICAL DEVICE OR LICENSED HEALTHCARE PROVIDER.</strong>
+      </p>
+      <p>
+        Maximal plyometric training (including Depth Jumps, Max Approach Vertical Jumps, Bounds, and Pogo Hops) combined with endurance distance running subjects the musculoskeletal and cardiovascular systems to extreme mechanical and metabolic stress—generating peak ground reaction forces of <strong>5 to 8 times body weight</strong> across the patellar tendon, Achilles tendon, plantar fascia, tibial cortex, knee ligaments (ACL/MCL), and lumbosacral spine.
+      </p>
+      <ul>
+        <li><strong>Mathematical Model Limitations:</strong> The <strong>Acute:Chronic Workload Ratio (ACWR 0.80–1.30 Sweet Spot)</strong>, <strong>Keith Baar Isometric Tendon Analgesia Protocol (5×45s holds)</strong>, <strong>Rathleff Plantar Loading</strong>, <strong>Flight-Time Physics ($h = g \cdot t^2 / 8$)</strong>, <strong>Riegel Race Predictor ($T_2 = T_1 \cdot (D_2/D_1)^{1.06}$)</strong>, and <strong>Karvonen Heart Rate Reserve (HRR) Zones</strong> are generalized sports-science formulas. They cannot detect subclinical collagen micro-ruptures, stress fractures, cardiac arrhythmias, or overtraining syndrome.</li>
+        <li><strong>Mandatory Medical Clearance:</strong> Always consult a licensed physician, orthopedic surgeon, or physical therapist before beginning any high-impact plyometric, endurance running, or tendon rehabilitation regimen—especially if you have a history of Osgood-Schlatter disease, patellar/Achilles tendinopathy, shin splints (MTSS), plantar fasciitis, joint instability, or cardiovascular conditions.</li>
+        <li><strong>Immediate Cessation Rule:</strong> Do not train through sharp, localized joint pain or acute tendon swelling. Stop exercising immediately if you experience sharp mechanical pain, dizziness, lightheadedness, chest tightness, or abnormal shortness of breath.</li>
+      </ul>
+    </section>
+
+    <!-- 6. "AS-IS" SOFTWARE WARRANTY & LIMITATION OF LIABILITY -->
     <section class="legal-card">
-      <h2>3. Hardware Permissions</h2>
-      <ul>
-        <li><strong>Local Storage & Filesystem:</strong> Used strictly to read and write your training database backups (<code>.json</code> / <code>.csv</code>) and generated app icons (<code>.png</code> / <code>.svg</code>).</li>
-        <li><strong>Screen WakeLock & Vibration:</strong> Used during active Guided Workout sessions, isometric holds, and cadence metronomes so your screen does not sleep mid-set.</li>
-        <li><strong>Local Video File Input:</strong> When using the Slow-Mo Video GCT/RSI Frame Scrubber, video files are processed strictly in local memory via <code>URL.createObjectURL</code> and are never uploaded anywhere.</li>
-      </ul>
-    </section>
-
-    <section class="legal-card" style="border-color:rgba(255, 90, 31, 0.35);">
-      <h2>4. Clinical & Biomechanical Disclaimer</h2>
+      <h2>6. "As-Is" Software Distribution & Limitation of Liability</h2>
       <p>
-        <strong>PLYOSTRIDE is an athletic periodization calculator and telemetry tracker, NOT a medical device.</strong>
+        PLYOSTRIDE is provided free of charge on an <strong>"AS IS" and "AS AVAILABLE"</strong> basis, without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
       </p>
       <p>
-        High-intensity plyometrics (including Depth Jumps, Max Approach Jumps, and Pogo Hops) and endurance distance running place substantial mechanical forces (5–8× body weight) on the patellar tendon, Achilles tendon, plantar fascia, tibia, and central nervous system.
+        In no event shall the creator, developers, or contributors of PLYOSTRIDE OS be held liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, without limitation, physical musculoskeletal injury, overtraining, loss of local SQLite training data, or device malfunction) arising out of the installation or use of this software. By downloading, installing, or using PLYOSTRIDE, you voluntarily assume full responsibility for your physical training execution and local data backup practices.
       </p>
-      <ul>
-        <li>The <strong>ACWR (Acute:Chronic Workload Ratio)</strong>, <strong>Keith Baar Isometric Tendon Analgesia Timer</strong>, <strong>Rathleff Plantar Protocol</strong>, and <strong>Karvonen Heart Rate Reserve (HRR) Zones</strong> are provided for informational and educational conditioning purposes only.</li>
-        <li>Always consult a qualified physician, orthopedic specialist, or licensed physical therapist before beginning any high-impact plyometric, endurance running, or tendon rehabilitation regimen.</li>
-        <li>Stop training immediately if you experience sharp joint pain, acute tendon swelling, dizziness, or chest discomfort.</li>
-      </ul>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-lockup">
+          <img src="icon.jpg" alt="PLYOSTRIDE" class="footer-icon" onerror="this.style.display='none'" />
+          <span class="logo-text">PLYOSTRIDE</span>
+        </div>
+        <p>Offline-First Hybrid Athlete Operating System. Built with vanilla HTML, CSS, JavaScript, Capacitor, and Native SQLite.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy & Clinical Disclaimer</a>
+        <a href="https://github.com/plyostrideos/plyostrideos.github.io/releases" target="_blank" rel="noopener">Releases (APK)</a>
+        <a href="https://github.com/plyostrideos/plyostrideos.github.io" target="_blank" rel="noopener">Source Repository</a>
+      </div>
+    </div>
     <div class="footer-bottom mono">
       <span>© 2026 PLYOSTRIDE OS. All rights reserved.</span>
-      <a href="index.html" style="color:var(--secondary); text-decoration:none;">Return to PLYOSTRIDE Home →</a>
+      <a href="index.html" style="color:var(--secondary); text-decoration:none;">← Return to PLYOSTRIDE Home</a>
     </div>
   </footer>
 
+  <!-- LIVE 5-THEME SWITCHER (SYNCED WITH LOCALSTORAGE) -->
+  <script>
+    const themeDots = document.querySelectorAll('.theme-dot');
+    const savedTheme = localStorage.getItem('plyostride_web_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeDots.forEach(d => {
+        d.classList.toggle('active', d.getAttribute('data-set-theme') === savedTheme);
+      });
+    }
+
+    themeDots.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-set-theme') || 'carbon';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('plyostride_web_theme', theme);
+        themeDots.forEach(d => d.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>

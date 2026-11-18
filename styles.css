@@ -32,6 +32,7 @@ html[data-theme="cobalt"] {
   --tertiary: #818CF8;
   --primary-glow: rgba(59, 130, 246, 0.22);
   --secondary-glow: rgba(56, 189, 248, 0.18);
+  --tertiary-glow: rgba(129, 140, 248, 0.18);
 }
 
 html[data-theme="emerald"] {
@@ -44,6 +45,7 @@ html[data-theme="emerald"] {
   --tertiary: #2DD4BF;
   --primary-glow: rgba(16, 185, 129, 0.22);
   --secondary-glow: rgba(163, 230, 53, 0.18);
+  --tertiary-glow: rgba(45, 212, 191, 0.18);
 }
 
 html[data-theme="crimson"] {
@@ -56,6 +58,7 @@ html[data-theme="crimson"] {
   --tertiary: #FACC15;
   --primary-glow: rgba(244, 63, 94, 0.22);
   --secondary-glow: rgba(251, 146, 60, 0.18);
+  --tertiary-glow: rgba(250, 204, 21, 0.18);
 }
 
 html[data-theme="amethyst"] {
@@ -68,6 +71,7 @@ html[data-theme="amethyst"] {
   --tertiary: #E879F9;
   --primary-glow: rgba(168, 85, 247, 0.24);
   --secondary-glow: rgba(34, 211, 238, 0.18);
+  --tertiary-glow: rgba(232, 121, 249, 0.18);
 }
 
 *,
@@ -99,6 +103,11 @@ body {
   transition: background-color 0.35s var(--spring);
 }
 
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
 .mono {
   font-family: 'JetBrains Mono', monospace;
   font-variant-numeric: tabular-nums;
@@ -111,6 +120,7 @@ body {
 .text-gradient {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 55%, var(--tertiary) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -135,6 +145,7 @@ body {
   top: 0;
   z-index: 100;
   background: rgba(8, 8, 11, 0.86);
+  background: color-mix(in srgb, var(--bg-elevated) 84%, transparent);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--hairline);
@@ -189,6 +200,7 @@ body {
   background: var(--secondary-glow);
   color: var(--secondary);
   border: 1px solid rgba(146, 232, 42, 0.3);
+  border-color: color-mix(in srgb, var(--secondary) 35%, transparent);
   white-space: nowrap;
 }
 
@@ -240,6 +252,10 @@ body {
   transition: transform 0.18s var(--spring), border-color 0.18s ease;
 }
 
+.theme-dot:hover {
+  transform: scale(1.12);
+}
+
 .theme-dot span {
   width: 11px;
   height: 11px;
@@ -264,6 +280,13 @@ body {
   padding: 7px 12px;
   border-radius: 999px;
   white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.18s var(--spring);
+}
+
+.btn-nav:hover {
+  background: var(--card-hover);
+  border-color: var(--primary);
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -351,8 +374,16 @@ body {
   border-radius: 999px;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.2s var(--spring), box-shadow 0.2s ease;
+  transition: transform 0.2s var(--spring), box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   max-width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-primary {
@@ -361,13 +392,22 @@ body {
   box-shadow: 0 10px 28px var(--primary-glow);
 }
 
+.btn-primary:hover {
+  box-shadow: 0 14px 36px var(--primary-glow);
+}
+
 .btn-secondary {
   background: var(--card);
   color: var(--text);
   border: 1px solid var(--hairline-strong);
 }
 
-/* Compact 3-Column Strip (Never stacks into huge vertical blocks on mobile) */
+.btn-secondary:hover {
+  background: var(--card-hover);
+  border-color: var(--secondary);
+}
+
+/* Compact 3-Column Telemetry Strip */
 .hero-telemetry-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -435,14 +475,15 @@ body {
   background: #000000;
   border-radius: 30px;
   padding: 12px 11px 10px;
+  min-height: 604px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border: 1px solid var(--hairline);
-  overflow: hidden; /* Clips dark circle / corner clipping artifacts */
+  overflow: hidden;
+  isolation: isolate;
 }
 
-/* Hide any stray SVG cap dots on the stadium rings */
+/* Defensive guard: keep stadium rings free of cap-dot artifacts */
 .mock-stadium-svg circle {
   display: none !important;
 }
@@ -453,6 +494,7 @@ body {
   justify-content: space-between;
   gap: 6px;
   margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .mock-brand {
@@ -500,6 +542,7 @@ body {
   display: none;
   flex-direction: column;
   gap: 9px;
+  flex: 1;
 }
 
 .mock-view.active {
@@ -673,6 +716,16 @@ body {
   gap: 7px;
   cursor: pointer;
   box-shadow: 0 6px 20px var(--secondary-glow);
+  transition: transform 0.16s var(--spring), filter 0.16s ease;
+}
+
+.mock-start-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.mock-start-btn:active {
+  transform: scale(0.98);
 }
 
 /* Goal Completion Card (100% Completed) */
@@ -719,7 +772,7 @@ body {
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(43, 196, 243, 0.14);
+  background: var(--tertiary-glow);
   color: var(--tertiary);
 }
 
@@ -728,7 +781,7 @@ body {
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(255, 90, 31, 0.16);
+  background: var(--primary-glow);
   color: var(--primary);
 }
 
@@ -843,14 +896,15 @@ body {
 .mock-ex-name { font-size: 11.5px; font-weight: 600; }
 .mock-ex-rx { font-size: 9.5px; color: var(--text-dim); }
 
-/* 5-Icon Bottom Nav Bar */
+/* 5-Icon Bottom Nav Bar (Pinned to Bottom of Phone Screen) */
 .mock-bottom-nav {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 2px;
   border-top: 1px solid var(--hairline);
   padding-top: 8px;
-  margin-top: 10px;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .mock-nav-item {
@@ -865,6 +919,13 @@ body {
   font-weight: 600;
   cursor: pointer;
   padding: 3px 2px;
+  border-radius: 8px;
+  transition: color 0.16s ease, background-color 0.16s ease;
+}
+
+.mock-nav-item:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .mock-nav-item.active {
@@ -880,7 +941,7 @@ body {
 }
 
 /* ==========================================================================
-   MAIN CONTENT SECTIONS & BENTO GRID (ZERO HORIZONTAL OVERFLOW)
+   MAIN CONTENT SECTIONS & 6-PILLAR BENTO GRID (ZERO HORIZONTAL OVERFLOW)
    ========================================================================== */
 .content-container {
   position: relative;
@@ -894,6 +955,7 @@ body {
 .section-block {
   padding: 48px 0;
   border-top: 1px solid var(--hairline);
+  scroll-margin-top: 76px;
 }
 
 .section-header {
@@ -941,6 +1003,13 @@ body {
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.22s var(--spring);
+}
+
+.bento-card:hover {
+  background: var(--card-hover);
+  border-color: var(--hairline-strong);
+  transform: translateY(-2px);
 }
 
 .bento-wide {
@@ -975,6 +1044,10 @@ body {
   font-size: 14px;
   color: var(--text-dim);
   line-height: 1.6;
+}
+
+.bento-card strong {
+  color: var(--text);
 }
 
 .bento-card code,
@@ -1050,6 +1123,7 @@ body {
 
 input[type="range"] {
   width: 100%;
+  min-height: 24px;
   accent-color: var(--primary);
   cursor: pointer;
 }
@@ -1094,6 +1168,7 @@ input[type="range"] {
    ========================================================================== */
 .table-scroll-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--card);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-lg);
@@ -1102,6 +1177,7 @@ input[type="range"] {
 
 .comp-table {
   width: 100%;
+  min-width: 580px;
   border-collapse: collapse;
   text-align: left;
   font-size: 13.5px;
@@ -1127,6 +1203,7 @@ input[type="range"] {
 
 .highlight-col {
   background: rgba(146, 232, 42, 0.04);
+  background: color-mix(in srgb, var(--secondary) 5%, transparent);
   font-weight: 600;
 }
 
@@ -1142,6 +1219,12 @@ input[type="range"] {
   border-radius: var(--radius-md);
   padding: 20px;
   min-width: 0;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.step-card:hover {
+  background: var(--card-hover);
+  border-color: var(--hairline-strong);
 }
 
 .step-num {
@@ -1167,10 +1250,16 @@ input[type="range"] {
   text-decoration: none;
 }
 
+.step-card a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    LEGAL / PRIVACY PAGE STYLES
    ========================================================================== */
 .legal-container {
+  position: relative;
+  z-index: 1;
   max-width: 820px;
   margin: 0 auto;
   padding: 48px 16px 80px;
@@ -1183,6 +1272,7 @@ input[type="range"] {
   padding: 26px;
   margin-bottom: 18px;
   overflow-wrap: anywhere;
+  scroll-margin-top: 76px;
 }
 
 .legal-card h2 {
@@ -1213,6 +1303,8 @@ input[type="range"] {
    FOOTER
    ========================================================================== */
 .site-footer {
+  position: relative;
+  z-index: 1;
   border-top: 1px solid var(--hairline);
   background: var(--bg-elevated);
   padding: 40px 16px 28px;
@@ -1255,6 +1347,11 @@ input[type="range"] {
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text);
 }
 
 .footer-bottom {
@@ -1318,5 +1415,50 @@ input[type="range"] {
   .sandbox-card,
   .step-card {
     padding: 18px;
+  }
+}
+
+@media (max-width: 440px) {
+  .nav-inner {
+    padding: 10px 12px;
+  }
+  .logo-text {
+    font-size: 14.5px;
+  }
+  .theme-switcher {
+    gap: 2px;
+    padding: 3px 5px;
+  }
+  .theme-dot {
+    width: 17px;
+    height: 17px;
+  }
+  .theme-dot span {
+    width: 10px;
+    height: 10px;
+  }
+  .btn-nav {
+    padding: 6px 10px;
+    font-size: 11.5px;
+  }
+  .hero-telemetry-strip {
+    grid-template-columns: 1fr;
+  }
+  .tel-pill {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }

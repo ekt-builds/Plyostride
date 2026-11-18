@@ -442,6 +442,11 @@ body {
   overflow: hidden; /* Clips dark circle / corner clipping artifacts */
 }
 
+/* Hide any stray SVG cap dots on the stadium rings */
+.mock-stadium-svg circle {
+  display: none !important;
+}
+
 .mock-header {
   display: flex;
   align-items: center;

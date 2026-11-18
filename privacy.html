@@ -109,7 +109,7 @@
       <ul>
         <li><strong>Tier 1 — Native Android SQLite Vault:</strong> On physical Android devices running the compiled Capacitor APK, all state keys, biometric profiles, 52-week logs, and shoe odometers are committed directly to a native SQLite relational table located at <code>/data/data/com.plyostride.app/databases/plyostride_vault</code> via <code>@capacitor-community/sqlite</code>.</li>
         <li><strong>Tier 2 — Origin Private File System (OPFS) & IndexedDB Mirror:</strong> Every state mutation automatically writes an asynchronous snapshot (`plyostride_auto_vault.json`) to the hardware-backed Origin Private File System and IndexedDB (`PlyostrideAutoBackupDB`), requesting persistent OS storage allocation via <code>navigator.storage.persist()</code>.</li>
-        <li><strong>Tier 3 — User-Bound Auto-Save & Manual Exports:</strong> Users can export raw <code>.json</code> full-database backups, <code>.csv</code> training spreadsheets, clean schedule templates, or Base64 Sync Codes at any time from the <strong>Data</strong> tab.</li>
+        <li><strong>Tier 3 — User-Bound Auto-Save & Manual Exports:</strong> Users can export raw <code>.json</code> full-database backups, <code>.csv` training spreadsheets, clean schedule templates, or Base64 Sync Codes at any time from the <strong>Data</strong> tab.</li>
       </ul>
       <p style="margin-top: 12px; padding: 12px; background: rgba(255, 90, 31, 0.08); border-left: 3px solid var(--primary); border-radius: 6px;">
         <strong>CRITICAL DATA RETENTION WARNING (ANDROID OS SANDBOX):</strong> Because PLYOSTRIDE stores 100% of your data locally on your phone and maintains zero cloud copies, <strong>uninstalling the PLYOSTRIDE APK or selecting "Clear Storage / Clear Data" in Android System Settings will permanently destroy your internal SQLite database</strong>. Always use the <strong>Download .json</strong> or <strong>Export Log (.csv)</strong> buttons in the Data tab to save an external backup copy to your phone's Downloads folder or personal cloud drive before uninstalling or switching devices. When installing a newer APK version with the same signing key, install it directly over the existing app to preserve your SQLite database in place.
@@ -223,7 +223,7 @@
     </div>
     <div class="footer-bottom mono">
       <span>© 2026 PLYOSTRIDE OS. All rights reserved.</span>
-      <a href="index.html" style="color:var(--secondary); text-decoration:none;">← Return to PLYOSTRIDE Home</a>
+      <a href="email-or-social" style="color:var(--secondary); text-decoration:none;">← Return to PLYOSTRIDE Home</a>
     </div>
   </footer>
 

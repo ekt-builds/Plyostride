@@ -18,15 +18,36 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23232329'/%3E%3Cstop offset='100%25' stop-color='%230E0E12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='118' fill='url(%23g)'/%3E%3Cpath d='M104 388 C196 306 312 286 414 304' fill='none' stroke='%23FF5A1F' stroke-width='36' stroke-linecap='round'/%3E%3Cpath d='M126 322 C214 246 318 228 402 244' fill='none' stroke='%232BC4F3' stroke-width='34' stroke-linecap='round'/%3E%3Cpath d='M168 258 L256 116 L344 258' fill='none' stroke='%2392E82A' stroke-width='42' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='256' cy='228' r='22' fill='%2392E82A'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="icon.jpg" />
 
-  <!-- Fonts & Stylesheet -->
+  <!-- Fonts & Cache-Busted Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2.0.2" />
   <style>
-    /* Defensive override to guarantee clean corner clipping on the phone mockup preview */
+    /* Theme-reactive phone mockup surfaces & reliable theme-dot hit targets */
     .phone-screen {
+      background: var(--bg) !important;
       overflow: hidden !important;
+      isolation: isolate;
+    }
+    .mock-verse {
+      background: var(--bg-elevated) !important;
+    }
+    .mock-card,
+    .mock-badge-left,
+    .mock-badge-right,
+    .mock-exit-pill,
+    .mock-wk-pill {
+      background: var(--card) !important;
+    }
+    .theme-dot {
+      width: 22px;
+      height: 22px;
+      padding: 0;
+    }
+    .theme-dot span {
+      display: block;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -68,19 +89,19 @@
       <div class="nav-actions">
         <!-- Live 5-Theme Switcher -->
         <div class="theme-switcher" role="group" aria-label="OLED Theme Preview">
-          <button type="button" class="theme-dot active" data-set-theme="carbon" title="PLYOSTRIDE Carbon (Default)">
+          <button type="button" class="theme-dot active" data-set-theme="carbon" aria-pressed="true" title="PLYOSTRIDE Carbon (Default)">
             <span style="background:#FF5A1F;"></span>
           </button>
-          <button type="button" class="theme-dot" data-set-theme="cobalt" title="Cobalt Velocity">
+          <button type="button" class="theme-dot" data-set-theme="cobalt" aria-pressed="false" title="Cobalt Velocity">
             <span style="background:#3B82F6;"></span>
           </button>
-          <button type="button" class="theme-dot" data-set-theme="emerald" title="Emerald Bio-Lab">
+          <button type="button" class="theme-dot" data-set-theme="emerald" aria-pressed="false" title="Emerald Bio-Lab">
             <span style="background:#10B981;"></span>
           </button>
-          <button type="button" class="theme-dot" data-set-theme="crimson" title="Crimson Apex">
+          <button type="button" class="theme-dot" data-set-theme="crimson" aria-pressed="false" title="Crimson Apex">
             <span style="background:#F43F5E;"></span>
           </button>
-          <button type="button" class="theme-dot" data-set-theme="amethyst" title="Amethyst Neuro">
+          <button type="button" class="theme-dot" data-set-theme="amethyst" aria-pressed="false" title="Amethyst Neuro">
             <span style="background:#A855F7;"></span>
           </button>
         </div>
@@ -140,7 +161,7 @@
       <div class="hero-device-stage">
         <div class="phone-frame">
           <div class="phone-notch"></div>
-          <div class="phone-screen" style="overflow: hidden;">
+          <div class="phone-screen">
 
             <!-- Exact App Top Header -->
             <div class="mock-header">
@@ -163,7 +184,7 @@
               </div>
             </div>
 
-            <!-- Interactive Screen View 1: TODAY (Exact Replica with Philippians 4:13 & 100% Completed State) -->
+            <!-- Interactive Screen View 1: TODAY -->
             <div class="mock-view active" id="mock-view-today">
               <!-- Philippians 4:13 Card -->
               <div class="mock-verse">
@@ -171,7 +192,7 @@
                 <div class="mock-verse-text">"I can do all this through Him who gives me strength."</div>
               </div>
 
-              <!-- 100% Completed Tilted Concentric Stadium Rings + Tick Track -->
+              <!-- 100% Completed Tilted Concentric Stadium Rings + Theme-Synced Tick Track -->
               <div class="mock-rings-wrap">
                 <svg class="mock-stadium-svg" viewBox="0 0 280 216" aria-label="100% Completed Activity Rings">
                   <defs>
@@ -185,9 +206,9 @@
                   </defs>
                   <g transform="translate(140, 108) rotate(-42) translate(-140, -108)">
                     <!-- Subtle Precision Stadium Tick Marks Behind Loops -->
-                    <rect x="34" y="34" width="212" height="148" rx="74" fill="none" stroke="rgba(255,90,31,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
-                    <rect x="56" y="56" width="168" height="104" rx="52" fill="none" stroke="rgba(146,232,42,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
-                    <rect x="78" y="78" width="124" height="60" rx="30" fill="none" stroke="rgba(43,196,243,0.18)" stroke-width="14" stroke-dasharray="2.5 5.5" />
+                    <rect x="34" y="34" width="212" height="148" rx="74" fill="none" stroke="var(--primary)" stroke-opacity="0.22" stroke-width="14" stroke-dasharray="2.5 5.5" />
+                    <rect x="56" y="56" width="168" height="104" rx="52" fill="none" stroke="var(--secondary)" stroke-opacity="0.22" stroke-width="14" stroke-dasharray="2.5 5.5" />
+                    <rect x="78" y="78" width="124" height="60" rx="30" fill="none" stroke="var(--tertiary)" stroke-opacity="0.22" stroke-width="14" stroke-dasharray="2.5 5.5" />
 
                     <!-- 100% Completed Full Concentric Stadium Rings -->
                     <rect x="34" y="34" width="212" height="148" rx="74" fill="none" stroke="var(--primary)" stroke-width="14" stroke-linecap="round" filter="url(#ringGlow)" />
@@ -244,7 +265,7 @@
                 </div>
               </div>
 
-              <!-- Neon Green Start Workout Button -->
+              <!-- Start Workout Button -->
               <button type="button" class="mock-start-btn" onclick="switchMockTab('workout', document.querySelectorAll('.mock-nav-item')[1])">
                 <span>▶</span> Start Workout · TUE (~62 mins)
               </button>
@@ -316,7 +337,7 @@
                   </div>
                 </div>
               </div>
-              <div class="mock-card" style="border-color:rgba(146,232,42,0.3);">
+              <div class="mock-card" style="border-color: var(--secondary-glow);">
                 <div style="font-size:11px;font-weight:700;color:var(--secondary);">✓ Keith Baar Tendon Gate Passed</div>
                 <div style="font-size:10.5px;color:var(--text-dim);margin-top:3px;">
                   Post-session Achilles & patellar check-in logged at 1/10 stiffness. Optimal elastic tendon remodeling unlocked.
@@ -741,25 +762,56 @@
 
   <!-- INTERACTIVE LABS, THEME ENGINE & MULTI-REPO APK RESOLVER -->
   <script>
-    /* 1. Live 5-Theme Switcher (Synced with privacy.html via localStorage) */
-    const themeDots = document.querySelectorAll('.theme-dot');
-    const savedTheme = localStorage.getItem('plyostride_web_theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      themeDots.forEach(d => {
-        d.classList.toggle('active', d.getAttribute('data-set-theme') === savedTheme);
+    /* 1. Crash-Proof Live 5-Theme Switcher (Synced with privacy.html) */
+    const VALID_THEMES = {
+      carbon: '#000000',
+      cobalt: '#030712',
+      emerald: '#020806',
+      crimson: '#090305',
+      amethyst: '#07040F'
+    };
+
+    function safeStorageGet(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function safeStorageSet(key, val) {
+      try {
+        window.localStorage.setItem(key, val);
+      } catch (e) {}
+    }
+
+    function applyWebTheme(themeName, persist) {
+      const theme = Object.prototype.hasOwnProperty.call(VALID_THEMES, themeName) ? themeName : 'carbon';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.body.setAttribute('data-theme', theme);
+
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', VALID_THEMES[theme]);
+
+      document.querySelectorAll('.theme-dot').forEach(dot => {
+        const isMatch = dot.getAttribute('data-set-theme') === theme;
+        dot.classList.toggle('active', isMatch);
+        dot.setAttribute('aria-pressed', String(isMatch));
+      });
+
+      if (persist) safeStorageSet('plyostride_web_theme', theme);
+    }
+
+    const themeSwitcher = document.querySelector('.theme-switcher');
+    if (themeSwitcher) {
+      themeSwitcher.addEventListener('click', (e) => {
+        const btn = e.target.closest('.theme-dot');
+        if (!btn) return;
+        applyWebTheme(btn.getAttribute('data-set-theme'), true);
       });
     }
 
-    themeDots.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const theme = btn.getAttribute('data-set-theme') || 'carbon';
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('plyostride_web_theme', theme);
-        themeDots.forEach(d => d.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
+    applyWebTheme(safeStorageGet('plyostride_web_theme') || 'carbon', false);
 
     /* 2. Interactive Hero Phone Mockup Tab Switcher */
     function switchMockTab(tabId, btnEl) {
@@ -825,11 +877,11 @@
       const paceM = Math.floor(paceKmSec / 60);
       const paceS = String(Math.round(paceKmSec % 60)).padStart(2, '0');
 
-      const lap400 = (paceKmSec * 0.4);
+      const lap400 = paceKmSec * 0.4;
       const lap400M = Math.floor(lap400 / 60);
       const lap400S = (lap400 % 60).toFixed(1).padStart(4, '0');
 
-      const rep800 = (paceKmSec * 0.8);
+      const rep800 = paceKmSec * 0.8;
       const rep800M = Math.floor(rep800 / 60);
       const rep800S = (rep800 % 60).toFixed(1).padStart(4, '0');
 
@@ -860,16 +912,30 @@
 
       for (const repo of reposToCheck) {
         try {
-          const res = await fetch(`https://api.github.com/repos/${repo}/releases`); if (!res.ok) continue; const releases = await res.json(); if (!Array.isArray(releases) \vert{}\vert{} releases.length === 0) continue;  const stableRelease = releases.find(r => !r.prerelease && !r.draft) \vert{}\vert{} releases[0]; const apkAsset = (stableRelease.assets \vert{}\vert{} []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));  const tag = stableRelease.tag_name \vert{}\vert{} 'v2.0.0'; if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE'; if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · 100% OFFLINE SQLITE ENGINE`;
+          const res = await fetch(`https://api.github.com/repos/${repo}/releases`);
+          if (!res.ok) continue;
+          const releases = await res.json();
+          if (!Array.isArray(releases) || releases.length === 0) continue;
+
+          const stableRelease = releases.find(r => !r.prerelease && !r.draft) || releases[0];
+          const apkAsset = (stableRelease.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));
+
+          const tag = stableRelease.tag_name || 'v2.0.0';
+          if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE';
+          if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · 100% OFFLINE SQLITE ENGINE`;
 
           if (apkAsset) {
             const sizeMb = (apkAsset.size / (1024 * 1024)).toFixed(1);
             btn.href = apkAsset.browser_download_url;
-            btnLabel.textContent = `Download ${tag} APK (${sizeMb} MB)`; if (metaSize) metaSize.textContent = `${apkAsset.name} · ${sizeMb} MB`; } else if (stableRelease.html_url) { btn.href = stableRelease.html_url; btnLabel.textContent = `Download ${tag} Release`;
+            btnLabel.textContent = `Download ${tag} APK (${sizeMb} MB)`;
+            if (metaSize) metaSize.textContent = `${apkAsset.name} · ${sizeMb} MB`;
+          } else if (stableRelease.html_url) {
+            btn.href = stableRelease.html_url;
+            btnLabel.textContent = `Download ${tag} Release`;
           }
           break;
         } catch (err) {
-          // Proceed to fallback
+          // Proceed to next fallback repository
         }
       }
     }

@@ -48,7 +48,7 @@
         </svg>
         <div class="brand-text-wrap">
           <span class="logo-text">PLYOSTRIDE</span>
-          <span class="version-pill mono" id="nav-version-pill">v1.0.0 STABLE</span>
+          <span class="version-pill mono" id="nav-version-pill">v2.0.0 STABLE</span>
         </div>
       </a>
 
@@ -94,7 +94,7 @@
       <div class="hero-copy">
         <div class="status-banner">
           <span class="status-dot"></span>
-          <span class="mono" id="release-status-text">V1.0.0 STABLE RELEASE · NATIVE SQLITE ENGINE</span>
+          <span class="mono" id="release-status-text">V2.0.0 STABLE RELEASE · NATIVE SQLITE ENGINE</span>
         </div>
 
         <h1>Deterministic Periodization.<br /><span class="text-gradient">Zero Cloud Lock-In.</span></h1>
@@ -106,7 +106,7 @@
         <div class="cta-group">
           <a id="apk-download-btn" href="https://github.com/plyostrideos/plyostrideos.github.io/releases" class="btn btn-primary">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="apk-btn-label">Download v1.0.0 APK</span>
+            <span id="apk-btn-label">Download v2.0.0 APK</span>
           </a>
           <a href="#physics-lab" class="btn btn-secondary">
             <span>Test Live Physics Lab</span>
@@ -357,11 +357,11 @@
               <div class="mock-card">
                 <div style="font-size:12px;font-weight:700;margin-bottom:6px;">On-Board Biomechanical Lab</div>
                 <div class="mono" style="font-size:10.5px;color:var(--text-dim);line-height:1.6;">
-                  • Flight-Time Jump & RSI: <span class="text-green">h = g·t²/8</span><br />
-                  • Slow-Mo Video GCT Scrubber (240 FPS)<br />
-                  • Run Cadence Metronome: <span class="text-orange">180 SPM</span><br />
-                  • Pogo Stiffness Rhythm: <span class="text-cyan">2.2 Hz (132 BPM)</span><br />
-                  • Keith Baar 5×45s Isometric Timer
+- Flight-Time Jump & RSI: <span class="text-green">h = g·t²/8</span><br />
+- Slow-Mo Video GCT Scrubber (240 FPS)<br />
+- Run Cadence Metronome: <span class="text-orange">180 SPM</span><br />
+- Pogo Stiffness Rhythm: <span class="text-cyan">2.2 Hz (132 BPM)</span><br />
+- Keith Baar 5×45s Isometric Timer
                 </div>
               </div>
             </div>
@@ -615,7 +615,7 @@
             <tr>
               <th>Architectural Dimension</th>
               <th>Mainstream Cloud Fitness Apps</th>
-              <th class="highlight-col">PLYOSTRIDE v1.0.0</th>
+              <th class="highlight-col">PLYOSTRIDE v2.0.0</th>
             </tr>
           </thead>
           <tbody>
@@ -830,7 +830,7 @@
           const stableRelease = releases.find(r => !r.prerelease && !r.draft) || releases[0];
           const apkAsset = (stableRelease.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));
 
-          const tag = stableRelease.tag_name || 'v1.0.0';
+          const tag = stableRelease.tag_name || 'v2.0.0';
           if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE';
           if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · NATIVE SQLITE ENGINE`;
 

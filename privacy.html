@@ -83,7 +83,7 @@
       <span class="eyebrow mono">LEGAL, SECURITY & CLINICAL GOVERNANCE</span>
       <h2>Privacy Architecture, APK Security Audit & Biomechanical Disclaimer</h2>
       <p class="mono" style="font-size:11.5px; color: var(--text-dim); margin-top: 6px;">
-        Effective Date: November 2026 · Build Target: PLYOSTRIDE v1.0.0 Stable (com.plyostride.app)
+        Effective Date: November 2026 · Build Target: PLYOSTRIDE v2.0.0 Stable (com.plyostride.app)
       </p>
     </div>
 
@@ -108,7 +108,7 @@
       </p>
       <ul>
         <li><strong>Tier 1 — Native Android SQLite Vault:</strong> On physical Android devices running the compiled Capacitor APK, all state keys, biometric profiles, 52-week logs, and shoe odometers are committed directly to a native SQLite relational table located at <code>/data/data/com.plyostride.app/databases/plyostride_vault</code> via <code>@capacitor-community/sqlite</code>.</li>
-        <li><strong>Tier 2 — Origin Private File System (OPFS) & IndexedDB Mirror:</strong> Every state mutation automatically writes an asynchronous snapshot (`plyostride_auto_vault.json`) to the hardware-backed Origin Private File System and IndexedDB (`PLYOSTRIDE_PERSISTENT_VAULT_DB`), requesting persistent OS storage allocation via <code>navigator.storage.persist()</code>.</li>
+        <li><strong>Tier 2 — Origin Private File System (OPFS) & IndexedDB Mirror:</strong> Every state mutation automatically writes an asynchronous snapshot (`plyostride_auto_vault.json`) to the hardware-backed Origin Private File System and IndexedDB (`PlyostrideAutoBackupDB`), requesting persistent OS storage allocation via <code>navigator.storage.persist()</code>.</li>
         <li><strong>Tier 3 — User-Bound Auto-Save & Manual Exports:</strong> Users can export raw <code>.json</code> full-database backups, <code>.csv</code> training spreadsheets, clean schedule templates, or Base64 Sync Codes at any time from the <strong>Data</strong> tab.</li>
       </ul>
       <p style="margin-top: 12px; padding: 12px; background: rgba(255, 90, 31, 0.08); border-left: 3px solid var(--primary); border-radius: 6px;">

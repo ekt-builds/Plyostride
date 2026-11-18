@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="theme-color" content="#000000" />
   <title>PLYOSTRIDE — Offline-First Hybrid Athlete Operating System</title>
-  <meta name="description" content="An offline-first, native SQLite athletic operating system engineered for vertical jump plyometrics, 10K running periodization, and clinical tendon load management." />
+  <meta name="description" content="A 100% deterministic, offline-first native SQLite athletic operating system engineered for vertical jump plyometrics, 10K running periodization, and clinical tendon load management. Zero AI bloat, zero cloud lock-in." />
 
   <!-- OpenGraph / Social Link Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="PLYOSTRIDE · Offline-First Hybrid Athlete OS" />
-  <meta property="og:description" content="52-week deterministic periodization, ACWR tendon load management, RSI flight physics, and native SQLite storage. Zero cloud lock-in." />
+  <meta property="og:description" content="52-week deterministic periodization, ACWR tendon load management, RSI flight physics, and native SQLite storage. Zero cloud AI, zero lock-in." />
   <meta property="og:url" content="https://plyostrideos.github.io/" />
   <meta property="og:image" content="https://plyostrideos.github.io/icon.jpg" />
 
@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Inline override to guarantee clean corner clipping on the phone mockup preview */
+    /* Defensive override to guarantee clean corner clipping on the phone mockup preview */
     .phone-screen {
       overflow: hidden !important;
     }
@@ -100,13 +100,13 @@
       <div class="hero-copy">
         <div class="status-banner">
           <span class="status-dot"></span>
-          <span class="mono" id="release-status-text">V2.0.0 STABLE RELEASE · NATIVE SQLITE ENGINE</span>
+          <span class="mono" id="release-status-text">V2.0.0 STABLE RELEASE · 100% OFFLINE SQLITE ENGINE</span>
         </div>
 
         <h1>Deterministic Periodization.<br /><span class="text-gradient">Zero Cloud Lock-In.</span></h1>
 
         <p class="hero-sub">
-          Most fitness apps are glorified task lists that trap your biometrics on proprietary servers. <strong>PLYOSTRIDE</strong> is an offline-first hybrid athlete operating system engineered for explosive vertical jump progression, 10K aerobic pacing, and clinical tendon load management—written directly to a native SQLite vault on your device.
+          Most fitness apps trap your biometrics on proprietary servers or push gimmicky cloud AI chatbots. <strong>PLYOSTRIDE</strong> is a 100% deterministic, offline-first hybrid athlete operating system engineered for explosive vertical jump progression, 10K aerobic pacing, and clinical tendon load management—written directly to a native SQLite vault on your device.
         </p>
 
         <div class="cta-group">
@@ -130,8 +130,8 @@
             <span class="tel-val" id="apk-meta-size">Android 8.0+ APK</span>
           </div>
           <div class="tel-pill">
-            <span class="tel-lbl">TELEMETRY</span>
-            <span class="tel-val text-cyan">0 External Trackers</span>
+            <span class="tel-lbl">PRIVACY</span>
+            <span class="tel-val text-cyan">0 Trackers · 0 Cloud AI</span>
           </div>
         </div>
       </div>
@@ -353,16 +353,25 @@
               </div>
             </div>
 
-            <!-- Interactive Screen View 4: TOOLS -->
+            <!-- Interactive Screen View 4: TOOLS (Zero-AI Offline Suite) -->
             <div class="mock-view" id="mock-view-tools">
               <div class="mock-card">
-                <div style="font-size:12px;font-weight:700;margin-bottom:6px;">On-Board Biomechanical Lab</div>
-                <div class="mono" style="font-size:10.5px;color:var(--text-dim);line-height:1.6;">
-- Flight-Time Jump & RSI: <span class="text-green">h = g·t²/8</span><br />
-- Slow-Mo Video GCT Scrubber (240 FPS)<br />
-- Run Cadence Metronome: <span class="text-orange">180 SPM</span><br />
-- Pogo Stiffness Rhythm: <span class="text-cyan">2.2 Hz (132 BPM)</span><br />
-- Keith Baar 5×45s Isometric Timer
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                  <span style="font-size:12px;font-weight:700;">On-Board Biomechanical Lab</span>
+                  <span class="mock-tag mono">100% OFFLINE</span>
+                </div>
+                <div class="mono" style="font-size:10.5px;color:var(--text-dim);line-height:1.65;">
+                  • Flight-Time Jump & RSI: <span class="text-green">h = g·t²/8</span><br />
+                  • Slow-Mo Video GCT Scrubber (240 FPS)<br />
+                  • Cadence Metronome: <span class="text-orange">180 SPM</span> / <span class="text-cyan">2.2 Hz</span><br />
+                  • Keith Baar 5×45s Isometric Timer<br />
+                  • Prehab Lab: Tendon · MTSS · Plantar
+                </div>
+              </div>
+              <div class="mock-card">
+                <div style="font-size:11px;font-weight:700;color:var(--tertiary);">Deterministic Math · Zero AI Bloat</div>
+                <div style="font-size:10.5px;color:var(--text-dim);margin-top:3px;">
+                  Every timer, pace split, Karvonen HR zone, and rehab protocol executes locally with zero API keys or network calls.
                 </div>
               </div>
             </div>
@@ -427,15 +436,16 @@
 
   <main class="content-container">
 
-    <!-- SECTION 1: 6-PILLAR BENTO ARCHITECTURE -->
+    <!-- SECTION 1: 6-PILLAR BENTO ARCHITECTURE (BALANCED 3-ROW 3-COL GRID: 2+1, 1+2, 2+1) -->
     <section id="architecture" class="section-block">
       <div class="section-header">
         <span class="eyebrow mono">SYSTEM ARCHITECTURE</span>
         <h2>Engineered for Concurrent Hybrid Output</h2>
-        <p>Combining high-mileage aerobic running with maximal vertical jump plyometrics creates severe neuromuscular interference if unmanaged. PLYOSTRIDE resolves the interference effect through six deterministic subsystems.</p>
+        <p>Combining high-mileage aerobic running with maximal vertical jump plyometrics creates severe neuromuscular interference if unmanaged. PLYOSTRIDE resolves the interference effect through six deterministic, zero-AI subsystems.</p>
       </div>
 
       <div class="bento-grid">
+        <!-- Row 1: 2 + 1 -->
         <article class="bento-card bento-wide">
           <div class="bento-top">
             <span class="bento-badge mono text-green">01 · NATIVE PERSISTENCE</span>
@@ -457,6 +467,7 @@
           </p>
         </article>
 
+        <!-- Row 2: 1 + 2 -->
         <article class="bento-card">
           <div class="bento-top">
             <span class="bento-badge mono text-cyan">03 · MACROCYCLE ENGINE</span>
@@ -467,16 +478,18 @@
           </p>
         </article>
 
-        <article class="bento-card">
+        <article class="bento-card bento-wide">
           <div class="bento-top">
-            <span class="bento-badge mono text-green">04 · NEURAL EXECUTION</span>
+            <span class="bento-badge mono text-green">04 · NEURAL EXECUTION & HARDWARE DSP</span>
+            <span class="mono bento-sub-tag">WakeLock · Haptics · Web Audio</span>
           </div>
-          <h3>2-Min PAP Primer & Hands-Free Player</h3>
+          <h3>2-Min PAP Primer, Hands-Free Player & Anti-Pop Audio</h3>
           <p>
-            Unlocks Post-Activation Potentiation (PAP) prior to max approach jumps. The full-screen workout player features hardware Screen WakeLock, automatic 5-second unilateral leg-switch transitions, and dual-frequency audio metronomes (<strong>180 SPM</strong> running cadence and <strong>2.2 Hz / 132 BPM</strong> pogo stiffness rhythm).
+            Unlocks Post-Activation Potentiation (PAP) prior to max approach jumps. The full-screen workout player features drift-free timestamp timers, hardware Screen WakeLock, automatic 5-second unilateral leg-switch transitions, native Capacitor haptics, and compressor-smoothed dual-frequency metronomes (<strong>180 SPM</strong> running cadence and <strong>2.2 Hz / 132 BPM</strong> pogo stiffness rhythm).
           </p>
         </article>
 
+        <!-- Row 3: 2 + 1 -->
         <article class="bento-card bento-wide">
           <div class="bento-top">
             <span class="bento-badge mono text-cyan">05 · BIOMECHANICS & GEAR TELEMETRY</span>
@@ -485,6 +498,16 @@
           <h3>Midsole Foam Decompression & Slow-Mo Video GCT Scrubber</h3>
           <p>
             Running shoe midsoles require 24 hours to decompress after runs ≥ 10 km. PLYOSTRIDE enforces shoe rotation between Zone 2 mileage trainers and carbon/tempo racers while counting cumulative jump contacts on your court shoes. Includes an on-board slow-motion video frame scrubber (60/120/240 FPS) to measure exact Ground Contact Time (GCT) and Reactive Strength Index (RSI).
+          </p>
+        </article>
+
+        <article class="bento-card">
+          <div class="bento-top">
+            <span class="bento-badge mono text-orange">06 · CLINICAL PREHAB LAB</span>
+          </div>
+          <h3>Zero-AI Deterministic Rehab & Autonomic CNS Gate</h3>
+          <p>
+            No hallucinating chatbots or external LLM API keys. Morning RHR deltas (+7 BPM fatigue gate) and built-in orthopedic prehab protocols—<strong>Keith Baar Tendonitis</strong>, <strong>MTSS Shin Splints</strong>, and <strong>Rathleff Plantar Loading</strong>—auto-regulate your daily prescription 100% locally.
           </p>
         </article>
       </div>
@@ -626,6 +649,11 @@
               <td class="highlight-col mono text-green">Local Native SQLite + OPFS + Raw JSON/CSV</td>
             </tr>
             <tr>
+              <td><strong>Coaching & Logic Engine</strong></td>
+              <td>Cloud AI chatbot wrappers that hallucinate & upload biometrics</td>
+              <td class="highlight-col">100% Offline Deterministic Sports Science · Zero AI / Zero API Keys</td>
+            </tr>
+            <tr>
               <td><strong>Tendon Pathology Protection</strong></td>
               <td>None; blindly prescribes volume regardless of tendon pain</td>
               <td class="highlight-col">Auto-swaps Depth Jumps to 45s Isometrics at Pain ≥ 4/10</td>
@@ -680,7 +708,7 @@
         <div class="step-card">
           <div class="step-num mono">STEP 04</div>
           <h3>Verify SQLite Native Vault</h3>
-          <p>Navigate to <strong>Data → App Icon Studio, Storage & Reset</strong>. Confirm the green <code>SQLite Native ✓ · Auto-Vault ✓</code> indicator is active on your device hardware.</p>
+          <p>Navigate to <strong>Data → System → App Icon Studio, Storage & Reset</strong>. Confirm the green <code>SQLite Native ✓ · Auto-Vault ✓</code> indicator is active on your device hardware.</p>
         </div>
       </div>
     </section>
@@ -707,18 +735,27 @@
     </div>
     <div class="footer-bottom mono">
       <span>© 2026 PLYOSTRIDE OS. All rights reserved.</span>
-      <span>ZERO CLOUD TRACKING · TOTAL DATA SOVEREIGNTY</span>
+      <span>ZERO CLOUD TRACKING · ZERO AI BLOAT · TOTAL DATA SOVEREIGNTY</span>
     </div>
   </footer>
 
   <!-- INTERACTIVE LABS, THEME ENGINE & MULTI-REPO APK RESOLVER -->
   <script>
-    /* 1. Live 5-Theme Switcher */
+    /* 1. Live 5-Theme Switcher (Synced with privacy.html via localStorage) */
     const themeDots = document.querySelectorAll('.theme-dot');
+    const savedTheme = localStorage.getItem('plyostride_web_theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      themeDots.forEach(d => {
+        d.classList.toggle('active', d.getAttribute('data-set-theme') === savedTheme);
+      });
+    }
+
     themeDots.forEach(btn => {
       btn.addEventListener('click', () => {
         const theme = btn.getAttribute('data-set-theme') || 'carbon';
         document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('plyostride_web_theme', theme);
         themeDots.forEach(d => d.classList.remove('active'));
         btn.classList.add('active');
       });
@@ -823,26 +860,12 @@
 
       for (const repo of reposToCheck) {
         try {
-          const res = await fetch(`https://api.github.com/repos/${repo}/releases`);
-          if (!res.ok) continue;
-          const releases = await res.json();
-          if (!Array.isArray(releases) || releases.length === 0) continue;
-
-          const stableRelease = releases.find(r => !r.prerelease && !r.draft) || releases[0];
-          const apkAsset = (stableRelease.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));
-
-          const tag = stableRelease.tag_name || 'v2.0.0';
-          if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE';
-          if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · NATIVE SQLITE ENGINE`;
+          const res = await fetch(`https://api.github.com/repos/${repo}/releases`); if (!res.ok) continue; const releases = await res.json(); if (!Array.isArray(releases) \vert{}\vert{} releases.length === 0) continue;  const stableRelease = releases.find(r => !r.prerelease && !r.draft) \vert{}\vert{} releases[0]; const apkAsset = (stableRelease.assets \vert{}\vert{} []).find(a => a.name && a.name.toLowerCase().endsWith('.apk'));  const tag = stableRelease.tag_name \vert{}\vert{} 'v2.0.0'; if (navPill) navPill.textContent = tag.toUpperCase() + ' STABLE'; if (statusText) statusText.textContent = `${tag.toUpperCase()} STABLE RELEASE · 100% OFFLINE SQLITE ENGINE`;
 
           if (apkAsset) {
             const sizeMb = (apkAsset.size / (1024 * 1024)).toFixed(1);
             btn.href = apkAsset.browser_download_url;
-            btnLabel.textContent = `Download ${tag} APK (${sizeMb} MB)`;
-            if (metaSize) metaSize.textContent = `${apkAsset.name} · ${sizeMb} MB`;
-          } else if (stableRelease.html_url) {
-            btn.href = stableRelease.html_url;
-            btnLabel.textContent = `Download ${tag} Release`;
+            btnLabel.textContent = `Download ${tag} APK (${sizeMb} MB)`; if (metaSize) metaSize.textContent = `${apkAsset.name} · ${sizeMb} MB`; } else if (stableRelease.html_url) { btn.href = stableRelease.html_url; btnLabel.textContent = `Download ${tag} Release`;
           }
           break;
         } catch (err) {

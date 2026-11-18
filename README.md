@@ -1,32 +1,40 @@
-# PLYOSTRIDE 
-**Offline-First Hybrid Athletic Operating System**
+# ⚡ PLYOSTRIDE: Hybrid Athlete Operating System (v2.0.0)
 
-Most fitness applications are glorified task lists that trap your training history in proprietary cloud servers. PLYOSTRIDE is engineered differently. It is an offline-first, SQLite-powered athletic operating system designed for deterministic periodization, biomechanical load management, multi-profile data sovereignty, and real-time telemetry.
+**PLYOSTRIDE** is a high-performance, offline-first Progressive Web App (PWA) and Android APK designed for hybrid athletes who refuse to compromise between endurance running speed and explosive vertical jump power. 
 
-## Core Architecture
-Built strictly with vanilla HTML, CSS, JavaScript, and packaged via Capacitor. All telemetry, biometrics, multi-profile databases, and workout logs are written directly to a local **native SQLite database** on the device, backed by an automated OPFS and IndexedDB persistent auto-vault. **Zero external servers. Zero vendor lock-in.**
+Built with zero-framework vanilla HTML/CSS/JavaScript and local SQLite/OPFS persistence, PLYOSTRIDE bridges the gap between sports science analytics and daily execution.
 
-## Elite Telemetry & Features
-- **Clinical Load Management:** Automated Acute:Chronic Workload Ratio (ACWR) tracking with color-coded safety zones (Sweet Spot vs. Spike Risk) to mathematically prevent overtraining and tendon overload.
-- **Deterministic Periodization:** Hardcoded 4:1/3:1 mesocycle auto-deloads, 52-week macrocycle engine, and a 1-Year Race Countdown reverse-engineering calculator.
-- **Tendon-First Tracking:** Integrated isometric hold timers (Keith Baar analgesic loading protocol), Arch Guard prehab protocols, and post-session RPE/tendon stiffness check-in gates.
-- **Biomechanical Physics:** On-board Reactive Strength Index (RSI) calculator utilizing flight-time physics ($h = g \cdot t^2 / 8$), slow-mo video frame scrubber for Ground Contact Time (GCT), and Karvonen Heart Rate Reserve (HRR) calibration.
-- **Gear Degradation & Shoe Rotation:** Odometer tracking for running shoe midsole foam decompression (24h recovery timers) and court shoe jump contact counters.
-- **User-Adaptive AI Coach:** Built-in sports-science telemetry advisor providing instant offline guidance, audio metronome (180 SPM run cadence / 2.2 Hz pogo rhythm), and optional cloud Gemini API integration.
-- **Multi-Theme UI Studio:** 5 calibrated OLED dark-mode color palettes (PLYOSTRIDE Carbon, Cobalt Velocity, Emerald Bio-Lab, Crimson Apex, and Amethyst Neuro) with Xiaomi HyperOS smooth tactile motion design.
-- **Data Sovereignty:** Raw JSON backups, CSV training log exports, clean program template sharing, and multi-profile switching. You own your training data forever.
+---
 
-## Installation (Stable v1.0.0 APK)
-PLYOSTRIDE is distributed independently to avoid bureaucratic app store delays and feature censorship.
+## 🚀 Core Features & Architecture
 
-1. Navigate to the [Releases](../../releases) tab.
-2. Download the latest `app-release.apk` (v1.0.0 Stable) file to your Android device.
-3. Open the file. Your device will prompt you that the installation is from an "Unknown Source." 
-4. Tap **Settings** and toggle **Allow from this source**.
-5. *Note on Play Protect:* Google Play Protect may flag the app as an "Unknown Developer." Tap **More Details** -> **Install Anyway** to bypass the warning.
+* **52-Week Periodized Hybrid Engine:** Automatically scales running mileage (Zone 2 aerobic base to race pace) alongside plyometric drop and approach jump progressions.
+* **Tendon Guard & Auto-Regulation:** Dynamic sensitivity triggers (Keith Baar analgesic loading protocols) that automatically swap high-impact depth jumps to isometrics if tendon stiffness spikes ($\ge 4/10$).
+* **ACWR & Recovery Analytics:** Real-time Acute-to-Chronic Workload Ratio tracking, 24-hour foam decompression countdowns, and Mi Fitness-inspired training effect rings.
+* **Offline-First Hardware Vault:** Local SQLite (`@capacitor-community/sqlite`), OPFS (Origin Private File System), and IndexedDB data persistence with multi-profile switching, CSV training exports, and zero-account JSON backups.
+* **Standalone Hardware Engines:** 
+  * **Haptics Engine (`v1.0`):** Crisp hardware-grade vibration pulses for rest countdown ticks and set completions via Capacitor.
+  * **Audio Engine (`v9.7`):** Smooth Web Audio API synthesizer beeps with a built-in hardware dynamics compressor and anti-pop envelope (zero speech synthesis overhead).
+* **Daily Scripture Integration:** Curated endurance-focused Bible verses with dynamic reflection taps.
+* **5 Curated OLED GUI Themes:** Carbon (Default OLED Black), Cobalt Velocity, Emerald Bio-Lab, Crimson Apex, and Amethyst Neuro with a built-in Squircle App Logo Studio.
 
-## Data Backup Protocol
-Because this app relies entirely on local SQLite storage and persistent device vaults, **your data will be lost if you uninstall the app or lose your phone without backing it up.** Use the System tab in the app to periodically export your database to a `.json` file, bind a local auto-save disk file, or use the encrypted Sync Code. 
+---
 
-## Legal & Medical Disclaimer
-PLYOSTRIDE is an athletic tracking tool and biomechanical calculator, not a medical device. The "Rehab" and "Arch Guard" protocols are based on standard strength and conditioning literature. Consult a physician or physical therapist before beginning any high-impact plyometric or rehabilitation program.
+## 🛠️ Tech Stack
+* **Frontend:** Vanilla HTML5, CSS3, Modern JavaScript (ESM).
+* **Mobile Wrapper:** Capacitor (`@capacitor/core`, `@capacitor/android`, `@capacitor/haptics`, `@capacitor-community/sqlite`).
+* **Storage:** LocalStorage, OPFS, IndexedDB, and Native Android SQLite.
+
+---
+
+## 📱 Installation & Deployment
+
+1. Head over to the **[GitHub Releases](https://github.com/plyostrideos/plyostrideos.github.io/releases)** page.
+2. Download the latest `plyostride-v2.0.0-release.apk` binary.
+3. Install the APK directly on your Android device (Android 8.0+).
+4. Verify your local SQLite vault connection under the **Data** tab.
+
+---
+
+## 📄 License & Privacy
+Distributed under an open-source license. PLYOSTRIDE operates with **zero external trackers, zero advertising SDKs, and zero cloud lock-in**. Your biometrics stay 100% on your device.

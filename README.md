@@ -37,4 +37,4 @@ Built with zero-framework vanilla HTML/CSS/JavaScript and local SQLite/OPFS pers
 ---
 
 ## 📄 License & Privacy
-Distributed under an open-source license. PLYOSTRIDE operates with **zero external trackers, zero advertising SDKs, and zero cloud lock-in**. Your biometrics stay 100% on your device.
+Distributed under an open-source license. Plyostride operates with **zero external trackers, zero advertising SDKs, and zero cloud lock-in**. Your biometrics stay 100% on your device.

@@ -2,7 +2,7 @@
 
 **Plyostride** is a high-performance, offline-first Progressive Web App (PWA) and Android APK designed for hybrid athletes who refuse to compromise between endurance running speed and explosive vertical jump power. 
 
-Built with zero-framework vanilla HTML/CSS/JavaScript and local SQLite/OPFS persistence, PLYOSTRIDE bridges the gap between sports science analytics and daily execution.
+Built with zero-framework vanilla HTML/CSS/JavaScript and local SQLite/OPFS persistence, Plyostride bridges the gap between sports science analytics and daily execution.
 
 ---
 

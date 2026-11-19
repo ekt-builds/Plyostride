@@ -1,4 +1,4 @@
-# ⚡ PLYOSTRIDE: Hybrid Athlete Operating System (v2.0.0)
+# ⚡ Plyostride: Hybrid Athlete Operating System (v2.0.0)
 
 **PLYOSTRIDE** is a high-performance, offline-first Progressive Web App (PWA) and Android APK designed for hybrid athletes who refuse to compromise between endurance running speed and explosive vertical jump power. 
 
